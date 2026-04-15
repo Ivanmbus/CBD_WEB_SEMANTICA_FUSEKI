@@ -1,0 +1,56 @@
+@prefix bib:  <http://ejemplo.org/biblioteca#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+ 
+# ── AUTORES ──────────────────────────────────────────────────────
+bib:autor_garcia_marquez
+    a bib:Autor ;
+    bib:nombre        "Gabriel García Márquez" ;
+    bib:nacionalidad  "Colombiana" .
+ 
+bib:autor_orwell
+    a bib:Autor ;
+    bib:nombre        "George Orwell" ;
+    bib:nacionalidad  "Británica" .
+ 
+bib:autor_tolkien
+    a bib:Autor ;
+    bib:nombre        "J.R.R. Tolkien" ;
+    bib:nacionalidad  "Británica" .
+ 
+# ── EDITORIALES ──────────────────────────────────────────────────
+bib:editorial_sudamericana
+    a bib:Editorial ;
+    bib:nombre "Editorial Sudamericana" .
+ 
+bib:editorial_secker
+    a bib:Editorial ;
+    bib:nombre "Secker & Warburg" .
+ 
+bib:editorial_allen
+    a bib:Editorial ;
+    bib:nombre "George Allen & Unwin" .
+
+# ── LIBROS ───────────────────────────────────────────────────────
+bib:libro_cien_anios
+    a bib:Libro ;
+    bib:titulo        "Cien años de soledad" ;
+    bib:anio          1967 ;
+    bib:isbn          "978-0-06-088328-7" ;
+    bib:escritoPor    bib:autor_garcia_marquez ;
+    bib:publicadoPor  bib:editorial_sudamericana .
+ 
+bib:libro_1984
+    a bib:Libro ;
+    bib:titulo        "1984" ;
+    bib:anio          1949 ;
+    bib:isbn          "978-0-14-118776-1" ;
+    bib:escritoPor    bib:autor_orwell ;
+    bib:publicadoPor  bib:editorial_secker .
+ 
+bib:libro_hobbit
+    a bib:Libro ;
+    bib:titulo        "El Hobbit" ;
+    bib:anio          1937 ;
+    bib:isbn          "978-0-618-00221-3" ;
+    bib:escritoPor    bib:autor_tolkien ;
+    bib:publicadoPor  bib:editorial_allen .
