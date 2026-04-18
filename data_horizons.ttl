@@ -1,0 +1,1035 @@
+@prefix sol: <http://ejemplo.org/sistema-solar#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── GENERADO DESDE NASA/JPL HORIZONS ───────────────────────
+
+sol:sol
+    a sol:Estrella ;
+    sol:nombre "Sol" ;
+    sol:nombreIngles "Sun" ;
+    sol:horizonsId "10" .
+
+# ── PLANETAS ────────────────────────────────────────────────
+
+sol:mercurio
+    a sol:Planeta ;
+    sol:nombre "Mercurio" ;
+    sol:nombreIngles "Mercury" ;
+    sol:horizonsId "199" ;
+    sol:tipoPlaneta "rocoso" ;
+    sol:orbitaAlrededorDe sol:sol ;
+    sol:tieneOrbita sol:orbita_mercurio .
+
+sol:orbita_mercurio
+    a sol:Orbita ;
+    sol:fechaEpoch "2026-04-17"^^xsd:date ;
+    sol:epochJulianDate "2461147.5"^^xsd:decimal ;
+    sol:semiejeMayorAu "0.3870988927833479"^^xsd:decimal ;
+    sol:excentricidad "0.2056338884789501"^^xsd:decimal ;
+    sol:inclinacionDeg "7.003385604995848"^^xsd:decimal ;
+    sol:longitudNodoAscendenteDeg "48.29798885685565"^^xsd:decimal ;
+    sol:argumentoPerihelioDeg "29.20131617836716"^^xsd:decimal ;
+    sol:anomaliaMediaDeg "231.435856519429"^^xsd:decimal ;
+    sol:perihelioAu "0.3074982422344119"^^xsd:decimal ;
+    sol:afelioAu "0.4666995433322838"^^xsd:decimal ;
+    sol:periodoOrbitalDias "87.96933004412493"^^xsd:decimal .
+
+sol:venus
+    a sol:Planeta ;
+    sol:nombre "Venus" ;
+    sol:nombreIngles "Venus" ;
+    sol:horizonsId "299" ;
+    sol:tipoPlaneta "rocoso" ;
+    sol:orbitaAlrededorDe sol:sol ;
+    sol:tieneOrbita sol:orbita_venus .
+
+sol:orbita_venus
+    a sol:Orbita ;
+    sol:fechaEpoch "2026-04-17"^^xsd:date ;
+    sol:epochJulianDate "2461147.5"^^xsd:decimal ;
+    sol:semiejeMayorAu "0.7233300998917352"^^xsd:decimal ;
+    sol:excentricidad "0.006790784972885803"^^xsd:decimal ;
+    sol:inclinacionDeg "3.39438373650274"^^xsd:decimal ;
+    sol:longitudNodoAscendenteDeg "76.60688074312141"^^xsd:decimal ;
+    sol:argumentoPerihelioDeg "54.91833623082893"^^xsd:decimal ;
+    sol:anomaliaMediaDeg "314.9124894148129"^^xsd:decimal ;
+    sol:perihelioAu "0.7184181207189544"^^xsd:decimal ;
+    sol:afelioAu "0.728242079064516"^^xsd:decimal ;
+    sol:periodoOrbitalDias "224.6998083201845"^^xsd:decimal .
+
+sol:tierra
+    a sol:Planeta ;
+    sol:nombre "Tierra" ;
+    sol:nombreIngles "Earth" ;
+    sol:horizonsId "399" ;
+    sol:tipoPlaneta "rocoso" ;
+    sol:orbitaAlrededorDe sol:sol ;
+    sol:tieneOrbita sol:orbita_tierra .
+
+sol:orbita_tierra
+    a sol:Orbita ;
+    sol:fechaEpoch "2026-04-17"^^xsd:date ;
+    sol:epochJulianDate "2461147.5"^^xsd:decimal ;
+    sol:semiejeMayorAu "1.000918588815606"^^xsd:decimal ;
+    sol:excentricidad "0.01651032231006707"^^xsd:decimal ;
+    sol:inclinacionDeg "0.002177936423891477"^^xsd:decimal ;
+    sol:longitudNodoAscendenteDeg "154.2578848951532"^^xsd:decimal ;
+    sol:argumentoPerihelioDeg "311.7631746472142"^^xsd:decimal ;
+    sol:anomaliaMediaDeg "98.7503673480589"^^xsd:decimal ;
+    sol:perihelioAu "0.9843931003081222"^^xsd:decimal ;
+    sol:afelioAu "1.017444077323089"^^xsd:decimal ;
+    sol:periodoOrbitalDias "365.7597459617554"^^xsd:decimal .
+
+sol:marte
+    a sol:Planeta ;
+    sol:nombre "Marte" ;
+    sol:nombreIngles "Mars" ;
+    sol:horizonsId "499" ;
+    sol:tipoPlaneta "rocoso" ;
+    sol:orbitaAlrededorDe sol:sol ;
+    sol:tieneOrbita sol:orbita_marte .
+
+sol:orbita_marte
+    a sol:Orbita ;
+    sol:fechaEpoch "2026-04-17"^^xsd:date ;
+    sol:epochJulianDate "2461147.5"^^xsd:decimal ;
+    sol:semiejeMayorAu "1.523644270807966"^^xsd:decimal ;
+    sol:excentricidad "0.09345176501114394"^^xsd:decimal ;
+    sol:inclinacionDeg "1.847485573137252"^^xsd:decimal ;
+    sol:longitudNodoAscendenteDeg "49.48135791462509"^^xsd:decimal ;
+    sol:argumentoPerihelioDeg "286.6183584860021"^^xsd:decimal ;
+    sol:anomaliaMediaDeg "11.37508742001193"^^xsd:decimal ;
+    sol:perihelioAu "1.381257024451844"^^xsd:decimal ;
+    sol:afelioAu "1.666031517164087"^^xsd:decimal ;
+    sol:periodoOrbitalDias "686.9477908995618"^^xsd:decimal .
+
+sol:jupiter
+    a sol:Planeta ;
+    sol:nombre "Júpiter" ;
+    sol:nombreIngles "Jupiter" ;
+    sol:horizonsId "599" ;
+    sol:tipoPlaneta "gigante gaseoso" ;
+    sol:orbitaAlrededorDe sol:sol ;
+    sol:tieneOrbita sol:orbita_jupiter .
+
+sol:orbita_jupiter
+    a sol:Orbita ;
+    sol:fechaEpoch "2026-04-17"^^xsd:date ;
+    sol:epochJulianDate "2461147.5"^^xsd:decimal ;
+    sol:semiejeMayorAu "5.203985839318388"^^xsd:decimal ;
+    sol:excentricidad "0.04828444719297098"^^xsd:decimal ;
+    sol:inclinacionDeg "1.303301413380539"^^xsd:decimal ;
+    sol:longitudNodoAscendenteDeg "100.5141117560413"^^xsd:decimal ;
+    sol:argumentoPerihelioDeg "273.8965509689119"^^xsd:decimal ;
+    sol:anomaliaMediaDeg "97.83285590655812"^^xsd:decimal ;
+    sol:perihelioAu "4.952714259866852"^^xsd:decimal ;
+    sol:afelioAu "5.455257418769925"^^xsd:decimal ;
+    sol:periodoOrbitalDias "4334.064771195454"^^xsd:decimal .
+
+sol:saturno
+    a sol:Planeta ;
+    sol:nombre "Saturno" ;
+    sol:nombreIngles "Saturn" ;
+    sol:horizonsId "699" ;
+    sol:tipoPlaneta "gigante gaseoso" ;
+    sol:orbitaAlrededorDe sol:sol ;
+    sol:tieneOrbita sol:orbita_saturno .
+
+sol:orbita_saturno
+    a sol:Orbita ;
+    sol:fechaEpoch "2026-04-17"^^xsd:date ;
+    sol:epochJulianDate "2461147.5"^^xsd:decimal ;
+    sol:semiejeMayorAu "9.544741018962316"^^xsd:decimal ;
+    sol:excentricidad "0.05538121526344614"^^xsd:decimal ;
+    sol:inclinacionDeg "2.488770667133657"^^xsd:decimal ;
+    sol:longitudNodoAscendenteDeg "113.691331667126"^^xsd:decimal ;
+    sol:argumentoPerihelioDeg "338.2176157133624"^^xsd:decimal ;
+    sol:anomaliaMediaDeg "279.5506032330965"^^xsd:decimal ;
+    sol:perihelioAu "9.016141661957322"^^xsd:decimal ;
+    sol:afelioAu "10.07334037596731"^^xsd:decimal ;
+    sol:periodoOrbitalDias "10769.17899183436"^^xsd:decimal .
+
+sol:urano
+    a sol:Planeta ;
+    sol:nombre "Urano" ;
+    sol:nombreIngles "Uranus" ;
+    sol:horizonsId "799" ;
+    sol:tipoPlaneta "gigante helado" ;
+    sol:orbitaAlrededorDe sol:sol ;
+    sol:tieneOrbita sol:orbita_urano .
+
+sol:orbita_urano
+    a sol:Orbita ;
+    sol:fechaEpoch "2026-04-17"^^xsd:date ;
+    sol:epochJulianDate "2461147.5"^^xsd:decimal ;
+    sol:semiejeMayorAu "19.2754645174088"^^xsd:decimal ;
+    sol:excentricidad "0.04714052857913367"^^xsd:decimal ;
+    sol:inclinacionDeg "0.7731628769044018"^^xsd:decimal ;
+    sol:longitudNodoAscendenteDeg "74.00971410498218"^^xsd:decimal ;
+    sol:argumentoPerihelioDeg "91.80782045143428"^^xsd:decimal ;
+    sol:anomaliaMediaDeg "260.1909394358662"^^xsd:decimal ;
+    sol:perihelioAu "18.36680893144981"^^xsd:decimal ;
+    sol:afelioAu "20.18412010336779"^^xsd:decimal ;
+    sol:periodoOrbitalDias "30909.80221931687"^^xsd:decimal .
+
+sol:neptuno
+    a sol:Planeta ;
+    sol:nombre "Neptuno" ;
+    sol:nombreIngles "Neptune" ;
+    sol:horizonsId "899" ;
+    sol:tipoPlaneta "gigante helado" ;
+    sol:orbitaAlrededorDe sol:sol ;
+    sol:tieneOrbita sol:orbita_neptuno .
+
+sol:orbita_neptuno
+    a sol:Orbita ;
+    sol:fechaEpoch "2026-04-17"^^xsd:date ;
+    sol:epochJulianDate "2461147.5"^^xsd:decimal ;
+    sol:semiejeMayorAu "30.08674766543147"^^xsd:decimal ;
+    sol:excentricidad "0.01049266596893241"^^xsd:decimal ;
+    sol:inclinacionDeg "1.773023485133277"^^xsd:decimal ;
+    sol:longitudNodoAscendenteDeg "131.8943564227361"^^xsd:decimal ;
+    sol:argumentoPerihelioDeg "279.8126692978398"^^xsd:decimal ;
+    sol:anomaliaMediaDeg "310.8608602358418"^^xsd:decimal ;
+    sol:perihelioAu "29.77105747208655"^^xsd:decimal ;
+    sol:afelioAu "30.4024378587764"^^xsd:decimal ;
+    sol:periodoOrbitalDias "60276.78898647586"^^xsd:decimal .
+
+# ── PLANETAS ENANOS ───────────────────────────────────────────────
+
+sol:ceres
+    a sol:PlanetaEnano ;
+    sol:nombre "Ceres" ;
+    sol:nombreIngles "Ceres" ;
+    sol:horizonsId "1;" ;
+    sol:orbitaAlrededorDe sol:sol ;
+    sol:tieneOrbita sol:orbita_ceres .
+
+sol:orbita_ceres
+    a sol:Orbita ;
+    sol:fechaEpoch "2026-04-17"^^xsd:date ;
+    sol:epochJulianDate "2461147.5"^^xsd:decimal ;
+    sol:semiejeMayorAu "2.765519998362707"^^xsd:decimal ;
+    sol:excentricidad "0.0796651279541222"^^xsd:decimal ;
+    sol:inclinacionDeg "10.58803718265745"^^xsd:decimal ;
+    sol:longitudNodoAscendenteDeg "80.24860840819557"^^xsd:decimal ;
+    sol:argumentoPerihelioDeg "73.30324686103555"^^xsd:decimal ;
+    sol:anomaliaMediaDeg "263.048803133785"^^xsd:decimal ;
+    sol:perihelioAu "2.545204493833458"^^xsd:decimal ;
+    sol:afelioAu "2.985835502891956"^^xsd:decimal ;
+    sol:periodoOrbitalDias "1679.823420020744"^^xsd:decimal .
+
+sol:pluton
+    a sol:PlanetaEnano ;
+    sol:nombre "Plutón" ;
+    sol:nombreIngles "Pluto" ;
+    sol:horizonsId "999" ;
+    sol:orbitaAlrededorDe sol:sol ;
+    sol:tieneOrbita sol:orbita_pluton .
+
+sol:orbita_pluton
+    a sol:Orbita ;
+    sol:fechaEpoch "2026-04-17"^^xsd:date ;
+    sol:epochJulianDate "2461147.5"^^xsd:decimal ;
+    sol:semiejeMayorAu "38.92941651014407"^^xsd:decimal ;
+    sol:excentricidad "0.2456101779442825"^^xsd:decimal ;
+    sol:inclinacionDeg "17.19722981164859"^^xsd:decimal ;
+    sol:longitudNodoAscendenteDeg "110.3537851138587"^^xsd:decimal ;
+    sol:argumentoPerihelioDeg "110.8413183107739"^^xsd:decimal ;
+    sol:anomaliaMediaDeg "55.81355333528381"^^xsd:decimal ;
+    sol:perihelioAu "29.36795559382051"^^xsd:decimal ;
+    sol:afelioAu "48.49087742646764"^^xsd:decimal ;
+    sol:periodoOrbitalDias "88718.71993386296"^^xsd:decimal .
+
+sol:haumea
+    a sol:PlanetaEnano ;
+    sol:nombre "Haumea" ;
+    sol:nombreIngles "Haumea" ;
+    sol:horizonsId "136108;" ;
+    sol:orbitaAlrededorDe sol:sol ;
+    sol:tieneOrbita sol:orbita_haumea .
+
+sol:orbita_haumea
+    a sol:Orbita ;
+    sol:fechaEpoch "2026-04-17"^^xsd:date ;
+    sol:epochJulianDate "2461147.5"^^xsd:decimal ;
+    sol:semiejeMayorAu "43.04441249978868"^^xsd:decimal ;
+    sol:excentricidad "0.1948040764848655"^^xsd:decimal ;
+    sol:inclinacionDeg "28.2084671483489"^^xsd:decimal ;
+    sol:longitudNodoAscendenteDeg "121.7869202795993"^^xsd:decimal ;
+    sol:argumentoPerihelioDeg "240.7578425831433"^^xsd:decimal ;
+    sol:anomaliaMediaDeg "222.959756126608"^^xsd:decimal ;
+    sol:perihelioAu "34.65918547493374"^^xsd:decimal ;
+    sol:afelioAu "51.42963952464362"^^xsd:decimal ;
+    sol:periodoOrbitalDias "103151.0382925422"^^xsd:decimal .
+
+sol:makemake
+    a sol:PlanetaEnano ;
+    sol:nombre "Makemake" ;
+    sol:nombreIngles "Makemake" ;
+    sol:horizonsId "136472;" ;
+    sol:orbitaAlrededorDe sol:sol ;
+    sol:tieneOrbita sol:orbita_makemake .
+
+sol:orbita_makemake
+    a sol:Orbita ;
+    sol:fechaEpoch "2026-04-17"^^xsd:date ;
+    sol:epochJulianDate "2461147.5"^^xsd:decimal ;
+    sol:semiejeMayorAu "45.55512277844212"^^xsd:decimal ;
+    sol:excentricidad "0.1592977604092781"^^xsd:decimal ;
+    sol:inclinacionDeg "29.02940239852066"^^xsd:decimal ;
+    sol:longitudNodoAscendenteDeg "79.28589978049799"^^xsd:decimal ;
+    sol:argumentoPerihelioDeg "297.102149959629"^^xsd:decimal ;
+    sol:anomaliaMediaDeg "169.7575430926287"^^xsd:decimal ;
+    sol:perihelioAu "38.2982937446666"^^xsd:decimal ;
+    sol:afelioAu "52.81195181221764"^^xsd:decimal ;
+    sol:periodoOrbitalDias "112306.3361238482"^^xsd:decimal .
+
+sol:eris
+    a sol:PlanetaEnano ;
+    sol:nombre "Eris" ;
+    sol:nombreIngles "Eris" ;
+    sol:horizonsId "136199;" ;
+    sol:orbitaAlrededorDe sol:sol ;
+    sol:tieneOrbita sol:orbita_eris .
+
+sol:orbita_eris
+    a sol:Orbita ;
+    sol:fechaEpoch "2026-04-17"^^xsd:date ;
+    sol:epochJulianDate "2461147.5"^^xsd:decimal ;
+    sol:semiejeMayorAu "67.95162791672773"^^xsd:decimal ;
+    sol:excentricidad "0.4379022377941956"^^xsd:decimal ;
+    sol:inclinacionDeg "43.90961002313323"^^xsd:decimal ;
+    sol:longitudNodoAscendenteDeg "36.01112662581751"^^xsd:decimal ;
+    sol:argumentoPerihelioDeg "150.7725534844233"^^xsd:decimal ;
+    sol:anomaliaMediaDeg "211.7002798486719"^^xsd:decimal ;
+    sol:perihelioAu "38.19545799023411"^^xsd:decimal ;
+    sol:afelioAu "97.70779784322133"^^xsd:decimal ;
+    sol:periodoOrbitalDias "204596.5118780549"^^xsd:decimal .
+
+# ── ASTEROIDES ───────────────────────────────────────────────
+
+sol:pallas
+    a sol:Asteroide ;
+    sol:nombre "Pallas" ;
+    sol:nombreIngles "Pallas" ;
+    sol:horizonsId "2;" ;
+    sol:orbitaAlrededorDe sol:sol ;
+    sol:tieneOrbita sol:orbita_pallas .
+
+sol:orbita_pallas
+    a sol:Orbita ;
+    sol:fechaEpoch "2026-04-17"^^xsd:date ;
+    sol:epochJulianDate "2461147.5"^^xsd:decimal ;
+    sol:semiejeMayorAu "2.769678208672346"^^xsd:decimal ;
+    sol:excentricidad "0.2306914920030044"^^xsd:decimal ;
+    sol:inclinacionDeg "34.93170823645771"^^xsd:decimal ;
+    sol:longitudNodoAscendenteDeg "172.8866987569988"^^xsd:decimal ;
+    sol:argumentoPerihelioDeg "310.9583560040472"^^xsd:decimal ;
+    sol:anomaliaMediaDeg "242.9305455052974"^^xsd:decimal ;
+    sol:perihelioAu "2.130737010345514"^^xsd:decimal ;
+    sol:afelioAu "3.408619406999178"^^xsd:decimal ;
+    sol:periodoOrbitalDias "1683.613494262254"^^xsd:decimal .
+
+sol:juno
+    a sol:Asteroide ;
+    sol:nombre "Juno" ;
+    sol:nombreIngles "Juno" ;
+    sol:horizonsId "3;" ;
+    sol:orbitaAlrededorDe sol:sol ;
+    sol:tieneOrbita sol:orbita_juno .
+
+sol:orbita_juno
+    a sol:Orbita ;
+    sol:fechaEpoch "2026-04-17"^^xsd:date ;
+    sol:epochJulianDate "2461147.5"^^xsd:decimal ;
+    sol:semiejeMayorAu "2.670963300005441"^^xsd:decimal ;
+    sol:excentricidad "0.2557356058997687"^^xsd:decimal ;
+    sol:inclinacionDeg "12.98635811712336"^^xsd:decimal ;
+    sol:longitudNodoAscendenteDeg "169.8134892472764"^^xsd:decimal ;
+    sol:argumentoPerihelioDeg "247.8938590989728"^^xsd:decimal ;
+    sol:anomaliaMediaDeg "250.7687939874102"^^xsd:decimal ;
+    sol:perihelioAu "1.987902882142504"^^xsd:decimal ;
+    sol:afelioAu "3.354023717868378"^^xsd:decimal ;
+    sol:periodoOrbitalDias "1594.411095371576"^^xsd:decimal .
+
+sol:vesta
+    a sol:Asteroide ;
+    sol:nombre "Vesta" ;
+    sol:nombreIngles "Vesta" ;
+    sol:horizonsId "4;" ;
+    sol:orbitaAlrededorDe sol:sol ;
+    sol:tieneOrbita sol:orbita_vesta .
+
+sol:orbita_vesta
+    a sol:Orbita ;
+    sol:fechaEpoch "2026-04-17"^^xsd:date ;
+    sol:epochJulianDate "2461147.5"^^xsd:decimal ;
+    sol:semiejeMayorAu "2.361437300520026"^^xsd:decimal ;
+    sol:excentricidad "0.09018770200321845"^^xsd:decimal ;
+    sol:inclinacionDeg "7.143973506656579"^^xsd:decimal ;
+    sol:longitudNodoAscendenteDeg "103.7018667982086"^^xsd:decimal ;
+    sol:argumentoPerihelioDeg "151.4903898026269"^^xsd:decimal ;
+    sol:anomaliaMediaDeg "66.77487349707131"^^xsd:decimal ;
+    sol:perihelioAu "2.148464696961442"^^xsd:decimal ;
+    sol:afelioAu "2.574409904078611"^^xsd:decimal ;
+    sol:periodoOrbitalDias "1325.449102128694"^^xsd:decimal .
+
+sol:hygiea
+    a sol:Asteroide ;
+    sol:nombre "Hygiea" ;
+    sol:nombreIngles "Hygiea" ;
+    sol:horizonsId "10;" ;
+    sol:orbitaAlrededorDe sol:sol ;
+    sol:tieneOrbita sol:orbita_hygiea .
+
+sol:orbita_hygiea
+    a sol:Orbita ;
+    sol:fechaEpoch "2026-04-17"^^xsd:date ;
+    sol:epochJulianDate "2461147.5"^^xsd:decimal ;
+    sol:semiejeMayorAu "3.150446844225791"^^xsd:decimal ;
+    sol:excentricidad "0.1070684654413845"^^xsd:decimal ;
+    sol:inclinacionDeg "3.830955697264209"^^xsd:decimal ;
+    sol:longitudNodoAscendenteDeg "283.1233729945838"^^xsd:decimal ;
+    sol:argumentoPerihelioDeg "312.4422333940313"^^xsd:decimal ;
+    sol:anomaliaMediaDeg "242.7076125949211"^^xsd:decimal ;
+    sol:perihelioAu "2.813133335159884"^^xsd:decimal ;
+    sol:afelioAu "3.487760353291699"^^xsd:decimal ;
+    sol:periodoOrbitalDias "2042.474586227593"^^xsd:decimal .
+
+sol:psyche
+    a sol:Asteroide ;
+    sol:nombre "Psyche" ;
+    sol:nombreIngles "Psyche" ;
+    sol:horizonsId "16;" ;
+    sol:orbitaAlrededorDe sol:sol ;
+    sol:tieneOrbita sol:orbita_psyche .
+
+sol:orbita_psyche
+    a sol:Orbita ;
+    sol:fechaEpoch "2026-04-17"^^xsd:date ;
+    sol:epochJulianDate "2461147.5"^^xsd:decimal ;
+    sol:semiejeMayorAu "2.925152740734716"^^xsd:decimal ;
+    sol:excentricidad "0.1347587677411925"^^xsd:decimal ;
+    sol:inclinacionDeg "3.098071143875613"^^xsd:decimal ;
+    sol:longitudNodoAscendenteDeg "149.9858645354772"^^xsd:decimal ;
+    sol:argumentoPerihelioDeg "229.9597791973861"^^xsd:decimal ;
+    sol:anomaliaMediaDeg "69.41000627813781"^^xsd:decimal ;
+    sol:perihelioAu "2.530962761938534"^^xsd:decimal ;
+    sol:afelioAu "3.319342719530898"^^xsd:decimal ;
+    sol:periodoOrbitalDias "1827.347945500262"^^xsd:decimal .
+
+sol:eros
+    a sol:Asteroide ;
+    sol:nombre "Eros" ;
+    sol:nombreIngles "Eros" ;
+    sol:horizonsId "433;" ;
+    sol:orbitaAlrededorDe sol:sol ;
+    sol:tieneOrbita sol:orbita_eros .
+
+sol:orbita_eros
+    a sol:Orbita ;
+    sol:fechaEpoch "2026-04-17"^^xsd:date ;
+    sol:epochJulianDate "2461147.5"^^xsd:decimal ;
+    sol:semiejeMayorAu "1.4582520517875"^^xsd:decimal ;
+    sol:excentricidad "0.2228933085853238"^^xsd:decimal ;
+    sol:inclinacionDeg "10.82856210990978"^^xsd:decimal ;
+    sol:longitudNodoAscendenteDeg "304.2681031954032"^^xsd:decimal ;
+    sol:argumentoPerihelioDeg "178.916298331019"^^xsd:decimal ;
+    sol:anomaliaMediaDeg "32.84715624050722"^^xsd:decimal ;
+    sol:perihelioAu "1.133217427213247"^^xsd:decimal ;
+    sol:afelioAu "1.783286676361753"^^xsd:decimal ;
+    sol:periodoOrbitalDias "643.2019036721377"^^xsd:decimal .
+
+sol:apophis
+    a sol:Asteroide ;
+    sol:nombre "Apophis" ;
+    sol:nombreIngles "Apophis" ;
+    sol:horizonsId "99942;" ;
+    sol:orbitaAlrededorDe sol:sol ;
+    sol:tieneOrbita sol:orbita_apophis .
+
+sol:orbita_apophis
+    a sol:Orbita ;
+    sol:fechaEpoch "2026-04-17"^^xsd:date ;
+    sol:epochJulianDate "2461147.5"^^xsd:decimal ;
+    sol:semiejeMayorAu "0.922366099597438"^^xsd:decimal ;
+    sol:excentricidad "0.1911420583635079"^^xsd:decimal ;
+    sol:inclinacionDeg "3.34094772137886"^^xsd:decimal ;
+    sol:longitudNodoAscendenteDeg "203.8978668921769"^^xsd:decimal ;
+    sol:argumentoPerihelioDeg "126.6765472935828"^^xsd:decimal ;
+    sol:anomaliaMediaDeg "116.359665717559"^^xsd:decimal ;
+    sol:perihelioAu "0.7460631447556633"^^xsd:decimal ;
+    sol:afelioAu "1.098669054439213"^^xsd:decimal ;
+    sol:periodoOrbitalDias "323.5589562804601"^^xsd:decimal .
+
+sol:bennu
+    a sol:Asteroide ;
+    sol:nombre "Bennu" ;
+    sol:nombreIngles "Bennu" ;
+    sol:horizonsId "101955;" ;
+    sol:orbitaAlrededorDe sol:sol ;
+    sol:tieneOrbita sol:orbita_bennu .
+
+sol:orbita_bennu
+    a sol:Orbita ;
+    sol:fechaEpoch "2026-04-17"^^xsd:date ;
+    sol:epochJulianDate "2461147.5"^^xsd:decimal ;
+    sol:semiejeMayorAu "1.125987891260982"^^xsd:decimal ;
+    sol:excentricidad "0.2037009968371088"^^xsd:decimal ;
+    sol:inclinacionDeg "6.032857114488539"^^xsd:decimal ;
+    sol:longitudNodoAscendenteDeg "1.967699410886992"^^xsd:decimal ;
+    sol:argumentoPerihelioDeg "66.415859682307"^^xsd:decimal ;
+    sol:anomaliaMediaDeg "28.72357368224898"^^xsd:decimal ;
+    sol:perihelioAu "0.8966230353846061"^^xsd:decimal ;
+    sol:afelioAu "1.355352747137359"^^xsd:decimal ;
+    sol:periodoOrbitalDias "436.4143346342386"^^xsd:decimal .
+
+sol:ryugu
+    a sol:Asteroide ;
+    sol:nombre "Ryugu" ;
+    sol:nombreIngles "Ryugu" ;
+    sol:horizonsId "162173;" ;
+    sol:orbitaAlrededorDe sol:sol ;
+    sol:tieneOrbita sol:orbita_ryugu .
+
+sol:orbita_ryugu
+    a sol:Orbita ;
+    sol:fechaEpoch "2026-04-17"^^xsd:date ;
+    sol:epochJulianDate "2461147.5"^^xsd:decimal ;
+    sol:semiejeMayorAu "1.190955541298315"^^xsd:decimal ;
+    sol:excentricidad "0.1910936332596428"^^xsd:decimal ;
+    sol:inclinacionDeg "5.866440684292169"^^xsd:decimal ;
+    sol:longitudNodoAscendenteDeg "251.2907630055524"^^xsd:decimal ;
+    sol:argumentoPerihelioDeg "211.6134065236767"^^xsd:decimal ;
+    sol:anomaliaMediaDeg "22.14195502269432"^^xsd:decimal ;
+    sol:perihelioAu "0.9633715198609153"^^xsd:decimal ;
+    sol:afelioAu "1.418539562735715"^^xsd:decimal ;
+    sol:periodoOrbitalDias "474.7246151022446"^^xsd:decimal .
+
+# ── SATÉLITES NATURALES ───────────────────────────────────
+
+sol:luna
+    a sol:Satelite ;
+    sol:nombre "Luna" ;
+    sol:nombreIngles "Moon" ;
+    sol:horizonsId "301" ;
+    sol:sateliteDe sol:tierra ;
+    sol:orbitaAlrededorDe sol:tierra ;
+    sol:tieneOrbita sol:orbita_luna .
+
+sol:tierra sol:tieneSatelite sol:luna .
+
+sol:orbita_luna
+    a sol:Orbita ;
+    sol:fechaEpoch "2026-04-17"^^xsd:date ;
+    sol:epochJulianDate "2461147.5"^^xsd:decimal ;
+    sol:semiejeMayorKm "386317.1846837693"^^xsd:decimal ;
+    sol:excentricidad "0.06536166605491384"^^xsd:decimal ;
+    sol:inclinacionDeg "5.112474176317368"^^xsd:decimal ;
+    sol:longitudNodoAscendenteDeg "337.6012314765853"^^xsd:decimal ;
+    sol:argumentoPeriapsisDeg "80.15003117591598"^^xsd:decimal ;
+    sol:anomaliaMediaDeg "326.6402967433287"^^xsd:decimal ;
+    sol:periapsisKm "361066.8498671943"^^xsd:decimal ;
+    sol:apoapsisKm "411567.5195003443"^^xsd:decimal ;
+    sol:periodoOrbitalDias "27.48898195848897"^^xsd:decimal .
+
+sol:fobos
+    a sol:Satelite ;
+    sol:nombre "Fobos" ;
+    sol:nombreIngles "Phobos" ;
+    sol:horizonsId "401" ;
+    sol:sateliteDe sol:marte ;
+    sol:orbitaAlrededorDe sol:marte ;
+    sol:tieneOrbita sol:orbita_fobos .
+
+sol:marte sol:tieneSatelite sol:fobos .
+
+sol:orbita_fobos
+    a sol:Orbita ;
+    sol:fechaEpoch "2026-04-17"^^xsd:date ;
+    sol:epochJulianDate "2461147.5"^^xsd:decimal ;
+    sol:semiejeMayorKm "9377.872793857932"^^xsd:decimal ;
+    sol:excentricidad "0.01504540317478909"^^xsd:decimal ;
+    sol:inclinacionDeg "26.61224522835684"^^xsd:decimal ;
+    sol:longitudNodoAscendenteDeg "80.46996864309669"^^xsd:decimal ;
+    sol:argumentoPeriapsisDeg "207.1283684483885"^^xsd:decimal ;
+    sol:anomaliaMediaDeg "102.0217365816492"^^xsd:decimal ;
+    sol:periapsisKm "9236.778916752453"^^xsd:decimal ;
+    sol:apoapsisKm "9518.966670963411"^^xsd:decimal ;
+    sol:periodoOrbitalDias "0.3191220630091675"^^xsd:decimal .
+
+sol:deimos
+    a sol:Satelite ;
+    sol:nombre "Deimos" ;
+    sol:nombreIngles "Deimos" ;
+    sol:horizonsId "402" ;
+    sol:sateliteDe sol:marte ;
+    sol:orbitaAlrededorDe sol:marte ;
+    sol:tieneOrbita sol:orbita_deimos .
+
+sol:marte sol:tieneSatelite sol:deimos .
+
+sol:orbita_deimos
+    a sol:Orbita ;
+    sol:fechaEpoch "2026-04-17"^^xsd:date ;
+    sol:epochJulianDate "2461147.5"^^xsd:decimal ;
+    sol:semiejeMayorKm "23459.67162498115"^^xsd:decimal ;
+    sol:excentricidad "0.0002850254598230782"^^xsd:decimal ;
+    sol:inclinacionDeg "24.12292049955905"^^xsd:decimal ;
+    sol:longitudNodoAscendenteDeg "81.32108514480377"^^xsd:decimal ;
+    sol:argumentoPeriapsisDeg "28.2933934199426"^^xsd:decimal ;
+    sol:anomaliaMediaDeg "297.9626787666962"^^xsd:decimal ;
+    sol:periapsisKm "23452.98502128895"^^xsd:decimal ;
+    sol:apoapsisKm "23466.35822867336"^^xsd:decimal ;
+    sol:periodoOrbitalDias "1.262650691794828"^^xsd:decimal .
+
+sol:io
+    a sol:Satelite ;
+    sol:nombre "Ío" ;
+    sol:nombreIngles "Io" ;
+    sol:horizonsId "501" ;
+    sol:sateliteDe sol:jupiter ;
+    sol:orbitaAlrededorDe sol:jupiter ;
+    sol:tieneOrbita sol:orbita_io .
+
+sol:jupiter sol:tieneSatelite sol:io .
+
+sol:orbita_io
+    a sol:Orbita ;
+    sol:fechaEpoch "2026-04-17"^^xsd:date ;
+    sol:epochJulianDate "2461147.5"^^xsd:decimal ;
+    sol:semiejeMayorKm "422022.6655660018"^^xsd:decimal ;
+    sol:excentricidad "0.003547031818339917"^^xsd:decimal ;
+    sol:inclinacionDeg "2.215155912035443"^^xsd:decimal ;
+    sol:longitudNodoAscendenteDeg "338.5147178795972"^^xsd:decimal ;
+    sol:argumentoPeriapsisDeg "171.3632101407285"^^xsd:decimal ;
+    sol:anomaliaMediaDeg "151.0196292031725"^^xsd:decimal ;
+    sol:periapsisKm "420525.7377431786"^^xsd:decimal ;
+    sol:apoapsisKm "423519.5933888251"^^xsd:decimal ;
+    sol:periodoOrbitalDias "1.771309089478707"^^xsd:decimal .
+
+sol:europa
+    a sol:Satelite ;
+    sol:nombre "Europa" ;
+    sol:nombreIngles "Europa" ;
+    sol:horizonsId "502" ;
+    sol:sateliteDe sol:jupiter ;
+    sol:orbitaAlrededorDe sol:jupiter ;
+    sol:tieneOrbita sol:orbita_europa .
+
+sol:jupiter sol:tieneSatelite sol:europa .
+
+sol:orbita_europa
+    a sol:Orbita ;
+    sol:fechaEpoch "2026-04-17"^^xsd:date ;
+    sol:epochJulianDate "2461147.5"^^xsd:decimal ;
+    sol:semiejeMayorKm "671283.6499987091"^^xsd:decimal ;
+    sol:excentricidad "0.009524990871663202"^^xsd:decimal ;
+    sol:inclinacionDeg "2.122361898827377"^^xsd:decimal ;
+    sol:longitudNodoAscendenteDeg "325.9287870527382"^^xsd:decimal ;
+    sol:argumentoPeriapsisDeg "358.7413982665408"^^xsd:decimal ;
+    sol:anomaliaMediaDeg "258.8370935016869"^^xsd:decimal ;
+    sol:periapsisKm "664889.6793601746"^^xsd:decimal ;
+    sol:apoapsisKm "677677.6206372436"^^xsd:decimal ;
+    sol:periodoOrbitalDias "3.553485248687093"^^xsd:decimal .
+
+sol:ganimedes
+    a sol:Satelite ;
+    sol:nombre "Ganímedes" ;
+    sol:nombreIngles "Ganymede" ;
+    sol:horizonsId "503" ;
+    sol:sateliteDe sol:jupiter ;
+    sol:orbitaAlrededorDe sol:jupiter ;
+    sol:tieneOrbita sol:orbita_ganimedes .
+
+sol:jupiter sol:tieneSatelite sol:ganimedes .
+
+sol:orbita_ganimedes
+    a sol:Orbita ;
+    sol:fechaEpoch "2026-04-17"^^xsd:date ;
+    sol:epochJulianDate "2461147.5"^^xsd:decimal ;
+    sol:semiejeMayorKm "1070844.944857806"^^xsd:decimal ;
+    sol:excentricidad "0.001383098322107869"^^xsd:decimal ;
+    sol:inclinacionDeg "2.34089071309733"^^xsd:decimal ;
+    sol:longitudNodoAscendenteDeg "339.1747428454485"^^xsd:decimal ;
+    sol:argumentoPeriapsisDeg "352.2523567801925"^^xsd:decimal ;
+    sol:anomaliaMediaDeg "303.3980401788622"^^xsd:decimal ;
+    sol:periapsisKm "1069363.861011335"^^xsd:decimal ;
+    sol:apoapsisKm "1072326.028704276"^^xsd:decimal ;
+    sol:periodoOrbitalDias "7.15935406447334"^^xsd:decimal .
+
+sol:calisto
+    a sol:Satelite ;
+    sol:nombre "Calisto" ;
+    sol:nombreIngles "Callisto" ;
+    sol:horizonsId "504" ;
+    sol:sateliteDe sol:jupiter ;
+    sol:orbitaAlrededorDe sol:jupiter ;
+    sol:tieneOrbita sol:orbita_calisto .
+
+sol:jupiter sol:tieneSatelite sol:calisto .
+
+sol:orbita_calisto
+    a sol:Orbita ;
+    sol:fechaEpoch "2026-04-17"^^xsd:date ;
+    sol:epochJulianDate "2461147.5"^^xsd:decimal ;
+    sol:semiejeMayorKm "1883634.453604744"^^xsd:decimal ;
+    sol:excentricidad "0.006940209567315021"^^xsd:decimal ;
+    sol:inclinacionDeg "1.952161567254822"^^xsd:decimal ;
+    sol:longitudNodoAscendenteDeg "336.7091264151012"^^xsd:decimal ;
+    sol:argumentoPeriapsisDeg "30.18388849770163"^^xsd:decimal ;
+    sol:anomaliaMediaDeg "208.5281736246598"^^xsd:decimal ;
+    sol:periapsisKm "1870561.635748512"^^xsd:decimal ;
+    sol:apoapsisKm "1896707.271460976"^^xsd:decimal ;
+    sol:periodoOrbitalDias "16.70257902521248"^^xsd:decimal .
+
+sol:mimas
+    a sol:Satelite ;
+    sol:nombre "Mimas" ;
+    sol:nombreIngles "Mimas" ;
+    sol:horizonsId "601" ;
+    sol:sateliteDe sol:saturno ;
+    sol:orbitaAlrededorDe sol:saturno ;
+    sol:tieneOrbita sol:orbita_mimas .
+
+sol:saturno sol:tieneSatelite sol:mimas .
+
+sol:orbita_mimas
+    a sol:Orbita ;
+    sol:fechaEpoch "2026-04-17"^^xsd:date ;
+    sol:epochJulianDate "2461147.5"^^xsd:decimal ;
+    sol:semiejeMayorKm "186004.9550043932"^^xsd:decimal ;
+    sol:excentricidad "0.01748320729305074"^^xsd:decimal ;
+    sol:inclinacionDeg "27.69946871768486"^^xsd:decimal ;
+    sol:longitudNodoAscendenteDeg "166.240966961664"^^xsd:decimal ;
+    sol:argumentoPeriapsisDeg "4.020502754536485"^^xsd:decimal ;
+    sol:anomaliaMediaDeg "138.9066543274705"^^xsd:decimal ;
+    sol:periapsisKm "182752.9918185168"^^xsd:decimal ;
+    sol:apoapsisKm "189256.9181902696"^^xsd:decimal ;
+    sol:periodoOrbitalDias "0.9472280605690843"^^xsd:decimal .
+
+sol:encelado
+    a sol:Satelite ;
+    sol:nombre "Encélado" ;
+    sol:nombreIngles "Enceladus" ;
+    sol:horizonsId "602" ;
+    sol:sateliteDe sol:saturno ;
+    sol:orbitaAlrededorDe sol:saturno ;
+    sol:tieneOrbita sol:orbita_encelado .
+
+sol:saturno sol:tieneSatelite sol:encelado .
+
+sol:orbita_encelado
+    a sol:Orbita ;
+    sol:fechaEpoch "2026-04-17"^^xsd:date ;
+    sol:epochJulianDate "2461147.5"^^xsd:decimal ;
+    sol:semiejeMayorKm "238414.6886095272"^^xsd:decimal ;
+    sol:excentricidad "0.006190063285689682"^^xsd:decimal ;
+    sol:inclinacionDeg "28.04793245277952"^^xsd:decimal ;
+    sol:longitudNodoAscendenteDeg "169.5144689931833"^^xsd:decimal ;
+    sol:argumentoPeriapsisDeg "138.8554618759983"^^xsd:decimal ;
+    sol:anomaliaMediaDeg "6.217995685135045"^^xsd:decimal ;
+    sol:periapsisKm "236938.8865987962"^^xsd:decimal ;
+    sol:apoapsisKm "239890.4906202582"^^xsd:decimal ;
+    sol:periodoOrbitalDias "1.374571295691613"^^xsd:decimal .
+
+sol:tetis
+    a sol:Satelite ;
+    sol:nombre "Tetis" ;
+    sol:nombreIngles "Tethys" ;
+    sol:horizonsId "603" ;
+    sol:sateliteDe sol:saturno ;
+    sol:orbitaAlrededorDe sol:saturno ;
+    sol:tieneOrbita sol:orbita_tetis .
+
+sol:saturno sol:tieneSatelite sol:tetis .
+
+sol:orbita_tetis
+    a sol:Orbita ;
+    sol:fechaEpoch "2026-04-17"^^xsd:date ;
+    sol:epochJulianDate "2461147.5"^^xsd:decimal ;
+    sol:semiejeMayorKm "294974.2743667943"^^xsd:decimal ;
+    sol:excentricidad "0.001163285760249635"^^xsd:decimal ;
+    sol:inclinacionDeg "27.51909633519807"^^xsd:decimal ;
+    sol:longitudNodoAscendenteDeg "171.5687551613107"^^xsd:decimal ;
+    sol:argumentoPeriapsisDeg "8.519404088668656"^^xsd:decimal ;
+    sol:anomaliaMediaDeg "356.8432355447011"^^xsd:decimal ;
+    sol:periapsisKm "294631.1349937834"^^xsd:decimal ;
+    sol:apoapsisKm "295317.4137398052"^^xsd:decimal ;
+    sol:periodoOrbitalDias "1.891663025685713"^^xsd:decimal .
+
+sol:dione
+    a sol:Satelite ;
+    sol:nombre "Dione" ;
+    sol:nombreIngles "Dione" ;
+    sol:horizonsId "604" ;
+    sol:sateliteDe sol:saturno ;
+    sol:orbitaAlrededorDe sol:saturno ;
+    sol:tieneOrbita sol:orbita_dione .
+
+sol:saturno sol:tieneSatelite sol:dione .
+
+sol:orbita_dione
+    a sol:Orbita ;
+    sol:fechaEpoch "2026-04-17"^^xsd:date ;
+    sol:epochJulianDate "2461147.5"^^xsd:decimal ;
+    sol:semiejeMayorKm "377645.6721927505"^^xsd:decimal ;
+    sol:excentricidad "0.002551877640426466"^^xsd:decimal ;
+    sol:inclinacionDeg "28.02460835174724"^^xsd:decimal ;
+    sol:longitudNodoAscendenteDeg "169.5368622990505"^^xsd:decimal ;
+    sol:argumentoPeriapsisDeg "272.3788764937847"^^xsd:decimal ;
+    sol:anomaliaMediaDeg "48.7579272179744"^^xsd:decimal ;
+    sol:periapsisKm "376681.966645878"^^xsd:decimal ;
+    sol:apoapsisKm "378609.377739623"^^xsd:decimal ;
+    sol:periodoOrbitalDias "2.740274999660823"^^xsd:decimal .
+
+sol:rea
+    a sol:Satelite ;
+    sol:nombre "Rea" ;
+    sol:nombreIngles "Rhea" ;
+    sol:horizonsId "605" ;
+    sol:sateliteDe sol:saturno ;
+    sol:orbitaAlrededorDe sol:saturno ;
+    sol:tieneOrbita sol:orbita_rea .
+
+sol:saturno sol:tieneSatelite sol:rea .
+
+sol:orbita_rea
+    a sol:Orbita ;
+    sol:fechaEpoch "2026-04-17"^^xsd:date ;
+    sol:epochJulianDate "2461147.5"^^xsd:decimal ;
+    sol:semiejeMayorKm "527242.8363485528"^^xsd:decimal ;
+    sol:excentricidad "0.001284326936150928"^^xsd:decimal ;
+    sol:inclinacionDeg "28.2550612613714"^^xsd:decimal ;
+    sol:longitudNodoAscendenteDeg "170.0108353512537"^^xsd:decimal ;
+    sol:argumentoPeriapsisDeg "185.1180199685978"^^xsd:decimal ;
+    sol:anomaliaMediaDeg "50.33301443793056"^^xsd:decimal ;
+    sol:periapsisKm "526565.6841719378"^^xsd:decimal ;
+    sol:apoapsisKm "527919.9885251679"^^xsd:decimal ;
+    sol:periodoOrbitalDias "4.520463316151178"^^xsd:decimal .
+
+sol:titan
+    a sol:Satelite ;
+    sol:nombre "Titán" ;
+    sol:nombreIngles "Titan" ;
+    sol:horizonsId "606" ;
+    sol:sateliteDe sol:saturno ;
+    sol:orbitaAlrededorDe sol:saturno ;
+    sol:tieneOrbita sol:orbita_titan .
+
+sol:saturno sol:tieneSatelite sol:titan .
+
+sol:orbita_titan
+    a sol:Orbita ;
+    sol:fechaEpoch "2026-04-17"^^xsd:date ;
+    sol:epochJulianDate "2461147.5"^^xsd:decimal ;
+    sol:semiejeMayorKm "1221934.277119204"^^xsd:decimal ;
+    sol:excentricidad "0.02869591949375766"^^xsd:decimal ;
+    sol:inclinacionDeg "27.7078443794121"^^xsd:decimal ;
+    sol:longitudNodoAscendenteDeg "169.0787992090995"^^xsd:decimal ;
+    sol:argumentoPeriapsisDeg "178.0624772228554"^^xsd:decimal ;
+    sol:anomaliaMediaDeg "225.3475296920185"^^xsd:decimal ;
+    sol:periapsisKm "1186869.749476328"^^xsd:decimal ;
+    sol:apoapsisKm "1256998.80476208"^^xsd:decimal ;
+    sol:periodoOrbitalDias "15.94733725357179"^^xsd:decimal .
+
+sol:japeto
+    a sol:Satelite ;
+    sol:nombre "Jápeto" ;
+    sol:nombreIngles "Iapetus" ;
+    sol:horizonsId "608" ;
+    sol:sateliteDe sol:saturno ;
+    sol:orbitaAlrededorDe sol:saturno ;
+    sol:tieneOrbita sol:orbita_japeto .
+
+sol:saturno sol:tieneSatelite sol:japeto .
+
+sol:orbita_japeto
+    a sol:Orbita ;
+    sol:fechaEpoch "2026-04-17"^^xsd:date ;
+    sol:epochJulianDate "2461147.5"^^xsd:decimal ;
+    sol:semiejeMayorKm "3564544.600391943"^^xsd:decimal ;
+    sol:excentricidad "0.02792756646324671"^^xsd:decimal ;
+    sol:inclinacionDeg "16.99056320258574"^^xsd:decimal ;
+    sol:longitudNodoAscendenteDeg "138.9007956705113"^^xsd:decimal ;
+    sol:argumentoPeriapsisDeg "231.1524662473395"^^xsd:decimal ;
+    sol:anomaliaMediaDeg "222.9689705377694"^^xsd:decimal ;
+    sol:periapsisKm "3464995.544153289"^^xsd:decimal ;
+    sol:apoapsisKm "3664093.656630597"^^xsd:decimal ;
+    sol:periodoOrbitalDias "79.46450614741691"^^xsd:decimal .
+
+sol:ariel
+    a sol:Satelite ;
+    sol:nombre "Ariel" ;
+    sol:nombreIngles "Ariel" ;
+    sol:horizonsId "701" ;
+    sol:sateliteDe sol:urano ;
+    sol:orbitaAlrededorDe sol:urano ;
+    sol:tieneOrbita sol:orbita_ariel .
+
+sol:urano sol:tieneSatelite sol:ariel .
+
+sol:orbita_ariel
+    a sol:Orbita ;
+    sol:fechaEpoch "2026-04-17"^^xsd:date ;
+    sol:epochJulianDate "2461147.5"^^xsd:decimal ;
+    sol:semiejeMayorKm "190942.1957381967"^^xsd:decimal ;
+    sol:excentricidad "0.0005884037507658271"^^xsd:decimal ;
+    sol:inclinacionDeg "97.71623548957456"^^xsd:decimal ;
+    sol:longitudNodoAscendenteDeg "167.6651105842764"^^xsd:decimal ;
+    sol:argumentoPeriapsisDeg "222.2179788503464"^^xsd:decimal ;
+    sol:anomaliaMediaDeg "315.190236603839"^^xsd:decimal ;
+    sol:periapsisKm "190829.8446340449"^^xsd:decimal ;
+    sol:apoapsisKm "191054.5468423485"^^xsd:decimal ;
+    sol:periodoOrbitalDias "2.520742439597117"^^xsd:decimal .
+
+sol:umbriel
+    a sol:Satelite ;
+    sol:nombre "Umbriel" ;
+    sol:nombreIngles "Umbriel" ;
+    sol:horizonsId "702" ;
+    sol:sateliteDe sol:urano ;
+    sol:orbitaAlrededorDe sol:urano ;
+    sol:tieneOrbita sol:orbita_umbriel .
+
+sol:urano sol:tieneSatelite sol:umbriel .
+
+sol:orbita_umbriel
+    a sol:Orbita ;
+    sol:fechaEpoch "2026-04-17"^^xsd:date ;
+    sol:epochJulianDate "2461147.5"^^xsd:decimal ;
+    sol:semiejeMayorKm "266015.0610529451"^^xsd:decimal ;
+    sol:excentricidad "0.003266488953578735"^^xsd:decimal ;
+    sol:inclinacionDeg "97.71256194899226"^^xsd:decimal ;
+    sol:longitudNodoAscendenteDeg "167.724626774047"^^xsd:decimal ;
+    sol:argumentoPeriapsisDeg "56.91599321453875"^^xsd:decimal ;
+    sol:anomaliaMediaDeg "227.6300960308666"^^xsd:decimal ;
+    sol:periapsisKm "265146.1257945301"^^xsd:decimal ;
+    sol:apoapsisKm "266883.9963113601"^^xsd:decimal ;
+    sol:periodoOrbitalDias "4.145098637920246"^^xsd:decimal .
+
+sol:titania
+    a sol:Satelite ;
+    sol:nombre "Titania" ;
+    sol:nombreIngles "Titania" ;
+    sol:horizonsId "703" ;
+    sol:sateliteDe sol:urano ;
+    sol:orbitaAlrededorDe sol:urano ;
+    sol:tieneOrbita sol:orbita_titania .
+
+sol:urano sol:tieneSatelite sol:titania .
+
+sol:orbita_titania
+    a sol:Orbita ;
+    sol:fechaEpoch "2026-04-17"^^xsd:date ;
+    sol:epochJulianDate "2461147.5"^^xsd:decimal ;
+    sol:semiejeMayorKm "436314.4446436899"^^xsd:decimal ;
+    sol:excentricidad "0.001096885841997653"^^xsd:decimal ;
+    sol:inclinacionDeg "97.76292156803736"^^xsd:decimal ;
+    sol:longitudNodoAscendenteDeg "167.6428116847094"^^xsd:decimal ;
+    sol:argumentoPeriapsisDeg "289.9260460831479"^^xsd:decimal ;
+    sol:anomaliaMediaDeg "343.5235646859527"^^xsd:decimal ;
+    sol:periapsisKm "435835.8575067011"^^xsd:decimal ;
+    sol:apoapsisKm "436793.0317806787"^^xsd:decimal ;
+    sol:periodoOrbitalDias "8.707024529277547"^^xsd:decimal .
+
+sol:oberon
+    a sol:Satelite ;
+    sol:nombre "Oberón" ;
+    sol:nombreIngles "Oberon" ;
+    sol:horizonsId "704" ;
+    sol:sateliteDe sol:urano ;
+    sol:orbitaAlrededorDe sol:urano ;
+    sol:tieneOrbita sol:orbita_oberon .
+
+sol:urano sol:tieneSatelite sol:oberon .
+
+sol:orbita_oberon
+    a sol:Orbita ;
+    sol:fechaEpoch "2026-04-17"^^xsd:date ;
+    sol:epochJulianDate "2461147.5"^^xsd:decimal ;
+    sol:semiejeMayorKm "583395.3286840973"^^xsd:decimal ;
+    sol:excentricidad "0.002484247941875148"^^xsd:decimal ;
+    sol:inclinacionDeg "97.90558714097966"^^xsd:decimal ;
+    sol:longitudNodoAscendenteDeg "167.7091753093343"^^xsd:decimal ;
+    sol:argumentoPeriapsisDeg "199.280704929726"^^xsd:decimal ;
+    sol:anomaliaMediaDeg "234.1061912728262"^^xsd:decimal ;
+    sol:periapsisKm "581946.0300395143"^^xsd:decimal ;
+    sol:apoapsisKm "584844.6273286802"^^xsd:decimal ;
+    sol:periodoOrbitalDias "13.46217167145577"^^xsd:decimal .
+
+sol:miranda
+    a sol:Satelite ;
+    sol:nombre "Miranda" ;
+    sol:nombreIngles "Miranda" ;
+    sol:horizonsId "705" ;
+    sol:sateliteDe sol:urano ;
+    sol:orbitaAlrededorDe sol:urano ;
+    sol:tieneOrbita sol:orbita_miranda .
+
+sol:urano sol:tieneSatelite sol:miranda .
+
+sol:orbita_miranda
+    a sol:Orbita ;
+    sol:fechaEpoch "2026-04-17"^^xsd:date ;
+    sol:epochJulianDate "2461147.5"^^xsd:decimal ;
+    sol:semiejeMayorKm "129873.9291410396"^^xsd:decimal ;
+    sol:excentricidad "0.001417165605128665"^^xsd:decimal ;
+    sol:inclinacionDeg "98.75090204010607"^^xsd:decimal ;
+    sol:longitudNodoAscendenteDeg "163.2966285053153"^^xsd:decimal ;
+    sol:argumentoPeriapsisDeg "61.36046568802655"^^xsd:decimal ;
+    sol:anomaliaMediaDeg "88.4930790827574"^^xsd:decimal ;
+    sol:periapsisKm "129689.876275658"^^xsd:decimal ;
+    sol:apoapsisKm "130057.9820064212"^^xsd:decimal ;
+    sol:periodoOrbitalDias "1.414039518944418"^^xsd:decimal .
+
+sol:triton
+    a sol:Satelite ;
+    sol:nombre "Tritón" ;
+    sol:nombreIngles "Triton" ;
+    sol:horizonsId "801" ;
+    sol:sateliteDe sol:neptuno ;
+    sol:orbitaAlrededorDe sol:neptuno ;
+    sol:tieneOrbita sol:orbita_triton .
+
+sol:neptuno sol:tieneSatelite sol:triton .
+
+sol:orbita_triton
+    a sol:Orbita ;
+    sol:fechaEpoch "2026-04-17"^^xsd:date ;
+    sol:epochJulianDate "2461147.5"^^xsd:decimal ;
+    sol:semiejeMayorKm "354765.9943690861"^^xsd:decimal ;
+    sol:excentricidad "1.041149685611356e-05"^^xsd:decimal ;
+    sol:inclinacionDeg "129.1337226296111"^^xsd:decimal ;
+    sol:longitudNodoAscendenteDeg "222.7321237378928"^^xsd:decimal ;
+    sol:argumentoPeriapsisDeg "30.06999057660695"^^xsd:decimal ;
+    sol:anomaliaMediaDeg "32.93050970191177"^^xsd:decimal ;
+    sol:periapsisKm "354762.300724051"^^xsd:decimal ;
+    sol:apoapsisKm "354769.6880141212"^^xsd:decimal ;
+    sol:periodoOrbitalDias "5.877074397329517"^^xsd:decimal .
+
+sol:nereida
+    a sol:Satelite ;
+    sol:nombre "Nereida" ;
+    sol:nombreIngles "Nereid" ;
+    sol:horizonsId "802" ;
+    sol:sateliteDe sol:neptuno ;
+    sol:orbitaAlrededorDe sol:neptuno ;
+    sol:tieneOrbita sol:orbita_nereida .
+
+sol:neptuno sol:tieneSatelite sol:nereida .
+
+sol:orbita_nereida
+    a sol:Orbita ;
+    sol:fechaEpoch "2026-04-17"^^xsd:date ;
+    sol:epochJulianDate "2461147.5"^^xsd:decimal ;
+    sol:semiejeMayorKm "5518264.366957237"^^xsd:decimal ;
+    sol:excentricidad "0.7458572830085952"^^xsd:decimal ;
+    sol:inclinacionDeg "5.04080506849597"^^xsd:decimal ;
+    sol:longitudNodoAscendenteDeg "319.6797629773565"^^xsd:decimal ;
+    sol:argumentoPeriapsisDeg "296.4480934223508"^^xsd:decimal ;
+    sol:anomaliaMediaDeg "95.84883901934765"^^xsd:decimal ;
+    sol:periapsisKm "1402426.699295368"^^xsd:decimal ;
+    sol:apoapsisKm "9634102.034619106"^^xsd:decimal ;
+    sol:periodoOrbitalDias "360.5764374525971"^^xsd:decimal .

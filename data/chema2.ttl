@@ -1,0 +1,200 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix sol:  <http://ejemplo.org/sistema-solar#> .
+
+# ── ONTOLOGÍA ───────────────────────────────────────────────────
+sol:SistemaSolar a owl:Ontology ;
+    rdfs:label "Ontología del Sistema Solar" .
+
+# ── CLASES ──────────────────────────────────────────────────────
+sol:CuerpoCeleste a owl:Class ;
+    rdfs:label "Cuerpo celeste" .
+
+sol:Estrella a owl:Class ;
+    rdfs:subClassOf sol:CuerpoCeleste ;
+    rdfs:label "Estrella" .
+
+sol:Planeta a owl:Class ;
+    rdfs:subClassOf sol:CuerpoCeleste ;
+    rdfs:label "Planeta" .
+
+sol:PlanetaEnano a owl:Class ;
+    rdfs:subClassOf sol:CuerpoCeleste ;
+    rdfs:label "Planeta enano" .
+
+sol:Satelite a owl:Class ;
+    rdfs:subClassOf sol:CuerpoCeleste ;
+    rdfs:label "Satélite natural" .
+
+sol:Asteroide a owl:Class ;
+    rdfs:subClassOf sol:CuerpoCeleste ;
+    rdfs:label "Asteroide" .
+
+sol:Cometa a owl:Class ;
+    rdfs:subClassOf sol:CuerpoCeleste ;
+    rdfs:label "Cometa" .
+
+sol:Orbita a owl:Class ;
+    rdfs:label "Órbita" .
+
+# ── PROPIEDADES COMUNES DE CUERPOS CELESTES ─────────────────────
+sol:nombre a owl:DatatypeProperty ;
+    rdfs:domain sol:CuerpoCeleste ;
+    rdfs:range xsd:string .
+
+sol:nombreIngles a owl:DatatypeProperty ;
+    rdfs:domain sol:CuerpoCeleste ;
+    rdfs:range xsd:string .
+
+sol:horizonsId a owl:DatatypeProperty ;
+    rdfs:domain sol:CuerpoCeleste ;
+    rdfs:range xsd:string .
+
+sol:masaKg a owl:DatatypeProperty ;
+    rdfs:domain sol:CuerpoCeleste ;
+    rdfs:range xsd:decimal .
+
+sol:radioMedioKm a owl:DatatypeProperty ;
+    rdfs:domain sol:CuerpoCeleste ;
+    rdfs:range xsd:decimal .
+
+sol:diametroKm a owl:DatatypeProperty ;
+    rdfs:domain sol:CuerpoCeleste ;
+    rdfs:range xsd:decimal .
+
+sol:densidadGcm3 a owl:DatatypeProperty ;
+    rdfs:domain sol:CuerpoCeleste ;
+    rdfs:range xsd:decimal .
+
+sol:gravedadMs2 a owl:DatatypeProperty ;
+    rdfs:domain sol:CuerpoCeleste ;
+    rdfs:range xsd:decimal .
+
+sol:velocidadEscapeKms a owl:DatatypeProperty ;
+    rdfs:domain sol:CuerpoCeleste ;
+    rdfs:range xsd:decimal .
+
+sol:periodoRotacionHoras a owl:DatatypeProperty ;
+    rdfs:domain sol:CuerpoCeleste ;
+    rdfs:range xsd:decimal .
+
+sol:temperaturaMediaC a owl:DatatypeProperty ;
+    rdfs:domain sol:CuerpoCeleste ;
+    rdfs:range xsd:decimal .
+
+sol:numeroSatelites a owl:DatatypeProperty ;
+    rdfs:domain sol:CuerpoCeleste ;
+    rdfs:range xsd:integer .
+
+sol:tieneAnillos a owl:DatatypeProperty ;
+    rdfs:domain sol:CuerpoCeleste ;
+    rdfs:range xsd:boolean .
+
+# ── PROPIEDADES ESPECÍFICAS DE PLANETAS ─────────────────────────
+sol:tipoPlaneta a owl:DatatypeProperty ;
+    rdfs:domain sol:Planeta ;
+    rdfs:range xsd:string .
+
+# ── PROPIEDADES ORBITALES GENERALES ─────────────────────────────
+sol:epochJulianDate a owl:DatatypeProperty ;
+    rdfs:domain sol:Orbita ;
+    rdfs:range xsd:decimal .
+
+sol:fechaEpoch a owl:DatatypeProperty ;
+    rdfs:domain sol:Orbita ;
+    rdfs:range xsd:date .
+
+sol:excentricidad a owl:DatatypeProperty ;
+    rdfs:domain sol:Orbita ;
+    rdfs:range xsd:decimal .
+
+sol:inclinacionDeg a owl:DatatypeProperty ;
+    rdfs:domain sol:Orbita ;
+    rdfs:range xsd:decimal .
+
+sol:longitudNodoAscendenteDeg a owl:DatatypeProperty ;
+    rdfs:domain sol:Orbita ;
+    rdfs:range xsd:decimal .
+
+sol:argumentoPerihelioDeg a owl:DatatypeProperty ;
+    rdfs:domain sol:Orbita ;
+    rdfs:range xsd:decimal .
+
+sol:argumentoPeriapsisDeg a owl:DatatypeProperty ;
+    rdfs:domain sol:Orbita ;
+    rdfs:range xsd:decimal .
+
+sol:anomaliaMediaDeg a owl:DatatypeProperty ;
+    rdfs:domain sol:Orbita ;
+    rdfs:range xsd:decimal .
+
+sol:periodoOrbitalDias a owl:DatatypeProperty ;
+    rdfs:domain sol:Orbita ;
+    rdfs:range xsd:decimal .
+
+# ── ÓRBITAS HELIOCÉNTRICAS EN AU ────────────────────────────────
+# Para planetas, planetas enanos, asteroides y cometas alrededor del Sol.
+
+sol:semiejeMayorAu a owl:DatatypeProperty ;
+    rdfs:domain sol:Orbita ;
+    rdfs:range xsd:decimal .
+
+sol:perihelioAu a owl:DatatypeProperty ;
+    rdfs:domain sol:Orbita ;
+    rdfs:range xsd:decimal .
+
+sol:afelioAu a owl:DatatypeProperty ;
+    rdfs:domain sol:Orbita ;
+    rdfs:range xsd:decimal .
+
+# ── ÓRBITAS PLANETOCÉNTRICAS EN KM ──────────────────────────────
+# Para satélites naturales alrededor de planetas.
+
+sol:semiejeMayorKm a owl:DatatypeProperty ;
+    rdfs:domain sol:Orbita ;
+    rdfs:range xsd:decimal .
+
+sol:periapsisKm a owl:DatatypeProperty ;
+    rdfs:domain sol:Orbita ;
+    rdfs:range xsd:decimal .
+
+sol:apoapsisKm a owl:DatatypeProperty ;
+    rdfs:domain sol:Orbita ;
+    rdfs:range xsd:decimal .
+
+# ── RELACIONES ENTRE RECURSOS ───────────────────────────────────
+sol:orbitaAlrededorDe a owl:ObjectProperty ;
+    rdfs:domain sol:CuerpoCeleste ;
+    rdfs:range sol:CuerpoCeleste .
+
+sol:tieneOrbita a owl:ObjectProperty ;
+    rdfs:domain sol:CuerpoCeleste ;
+    rdfs:range sol:Orbita .
+
+sol:tieneSatelite a owl:ObjectProperty ;
+    rdfs:domain sol:CuerpoCeleste ;
+    rdfs:range sol:Satelite .
+
+sol:sateliteDe a owl:ObjectProperty ;
+    rdfs:domain sol:Satelite ;
+    rdfs:range sol:CuerpoCeleste .
+
+# ── PLANETAS ENANOS ───────────────────────────────────────────────
+ sol:ceres
+    a sol:PlanetaEnano ;
+    sol:nombre "Ceres" ;
+    sol:nombreIngles "Ceres" ;
+    sol:horizonsId "1;" ;
+    sol:orbitaAlrededorDe sol:sol ;
+    sol:tieneOrbita sol:orbita_ceres .
+
+# ── ASTEROIDES ───────────────────────────────────────────────
+sol:vesta
+    a sol:Asteroide ;
+    sol:nombre "Vesta" ;
+    sol:nombreIngles "Vesta" ;
+    sol:horizonsId "4;" ;
+    sol:orbitaAlrededorDe sol:sol ;
+    sol:tieneOrbita sol:orbita_vesta .
