@@ -14,11 +14,11 @@ curl -u admin:admin123 -X DELETE "http://fuseki:3030/miDataset/data?default"
 echo "Cargando schema..."
 curl -u admin:admin123 -X POST http://fuseki:3030/miDataset/data \
      -H 'Content-Type: text/turtle' \
-     --data-binary @/data/schema.ttl
+     --data-binary @/data/schema_horizons.ttl
 
 echo "Cargando datos..."
 curl -u admin:admin123 -X POST http://fuseki:3030/miDataset/data \
      -H 'Content-Type: text/turtle' \
-     --data-binary @/data/data.ttl
+     --data-binary @/data/data_horizons.ttl
 
 echo "Listo."
