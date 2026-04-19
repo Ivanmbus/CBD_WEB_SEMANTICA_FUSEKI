@@ -54,3 +54,20 @@ def get_planets():
         return {"planets": planets}
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
+
+@app.get("/planets/{name}")
+def get_planet_info(name: str):
+    query = f"""PREFIX sol: <http://ejemplo.org/sistema-solar#>
+            SELECT ?propiedad ?valor 
+            WHERE {{
+            ?p a sol:Planeta ;
+                sol:nombre "{name}" ;
+                ?propiedad ?valor .
+            }}"""
+    sparql = config_request(query)
+    try:
+        results = sparql.query().convert()
+        info = {result['propiedad']['value'].split('#')[-1]: result['valor']['value'] for result in results["results"]["bindings"]}
+        return {"name": name, "info": info}
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=str(e))
