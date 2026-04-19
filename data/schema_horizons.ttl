@@ -176,6 +176,10 @@ sol:orbitaAlrededorDe a owl:ObjectProperty ;
 sol:tieneOrbita a owl:ObjectProperty ;
     rdfs:domain sol:CuerpoCeleste ;
     rdfs:range sol:Orbita .
+    
+sol:fechaConsulta a owl:DatatypeProperty ;
+    rdfs:domain sol:Orbita ;
+    rdfs:range xsd:date .
 
 sol:tieneSatelite a owl:ObjectProperty ;
     rdfs:domain sol:CuerpoCeleste ;
@@ -184,5 +188,9 @@ sol:tieneSatelite a owl:ObjectProperty ;
 sol:sateliteDe a owl:ObjectProperty ;
     rdfs:domain sol:Satelite ;
     rdfs:range sol:CuerpoCeleste .
+
+sol:designacionProvisional a owl:DatatypeProperty ;
+    rdfs:domain sol:Satelite ;
+    rdfs:range xsd:string .
 
 
