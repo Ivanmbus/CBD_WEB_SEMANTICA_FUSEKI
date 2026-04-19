@@ -20,6 +20,7 @@ sol:mercurio
     sol:horizonsId "199" ;
     sol:tipoPlaneta "rocoso" ;
     sol:orbitaAlrededorDe sol:sol ;
+    sol:masaKg "3.302e+23"^^xsd:decimal ;
     sol:imagenUrl "https://images-assets.nasa.gov/image/PIA16908/PIA16908~medium.jpg"^^xsd:anyURI ;
     sol:imagenUrl "https://images-assets.nasa.gov/image/PIA17855/PIA17855~medium.jpg"^^xsd:anyURI ;
     sol:imagenUrl "https://images-assets.nasa.gov/image/PIA12262/PIA12262~small.jpg"^^xsd:anyURI ;
@@ -45,6 +46,7 @@ sol:venus
     sol:horizonsId "299" ;
     sol:tipoPlaneta "rocoso" ;
     sol:orbitaAlrededorDe sol:sol ;
+    sol:masaKg "4.8685e+24"^^xsd:decimal ;
     sol:imagenUrl "https://images-assets.nasa.gov/image/PIA13001/PIA13001~small.jpg"^^xsd:anyURI ;
     sol:imagenUrl "https://images-assets.nasa.gov/image/GRC-2012-C-02176/GRC-2012-C-02176~medium.jpg"^^xsd:anyURI ;
     sol:imagenUrl "https://images-assets.nasa.gov/image/PIA00248/PIA00248~small.jpg"^^xsd:anyURI ;
@@ -70,6 +72,7 @@ sol:tierra
     sol:horizonsId "399" ;
     sol:tipoPlaneta "rocoso" ;
     sol:orbitaAlrededorDe sol:sol ;
+    sol:masaKg "5.97219e+24"^^xsd:decimal ;
     sol:imagenUrl "https://images-assets.nasa.gov/image/PIA00342/PIA00342~medium.jpg"^^xsd:anyURI ;
     sol:imagenUrl "https://images-assets.nasa.gov/image/PIA00122/PIA00122~small.jpg"^^xsd:anyURI ;
     sol:imagenUrl "https://images-assets.nasa.gov/image/PIA00123/PIA00123~small.jpg"^^xsd:anyURI ;
@@ -96,6 +99,7 @@ sol:marte
     sol:horizonsId "499" ;
     sol:tipoPlaneta "rocoso" ;
     sol:orbitaAlrededorDe sol:sol ;
+    sol:masaKg "6.417099999999999e+23"^^xsd:decimal ;
     sol:imagenUrl "https://images-assets.nasa.gov/image/NHQ201906010007/NHQ201906010007~medium.jpg"^^xsd:anyURI ;
     sol:imagenUrl "https://images-assets.nasa.gov/image/NHQ201905310033/NHQ201905310033~medium.jpg"^^xsd:anyURI ;
     sol:imagenUrl "https://images-assets.nasa.gov/image/NHQ201905310034/NHQ201905310034~medium.jpg"^^xsd:anyURI ;
@@ -263,6 +267,7 @@ sol:saturno
     sol:horizonsId "699" ;
     sol:tipoPlaneta "gigante gaseoso" ;
     sol:orbitaAlrededorDe sol:sol ;
+    sol:masaKg "5.6834e+26"^^xsd:decimal ;
     sol:imagenUrl "https://images-assets.nasa.gov/image/PIA01973/PIA01973~thumb.jpg"^^xsd:anyURI ;
     sol:imagenUrl "https://images-assets.nasa.gov/image/PIA06423/PIA06423~small.jpg"^^xsd:anyURI ;
     sol:imagenUrl "https://images-assets.nasa.gov/image/PIA09005/PIA09005~small.jpg"^^xsd:anyURI ;
@@ -579,6 +584,7 @@ sol:urano
     sol:horizonsId "799" ;
     sol:tipoPlaneta "gigante helado" ;
     sol:orbitaAlrededorDe sol:sol ;
+    sol:masaKg "8.6813e+25"^^xsd:decimal ;
     sol:imagenUrl "https://images-assets.nasa.gov/image/PIA23683/PIA23683~thumb.jpg"^^xsd:anyURI ;
     sol:imagenUrl "https://images-assets.nasa.gov/image/PIA01391/PIA01391~small.jpg"^^xsd:anyURI ;
     sol:imagenUrl "https://images-assets.nasa.gov/image/PIA01535/PIA01535~small.jpg"^^xsd:anyURI ;
@@ -631,6 +637,7 @@ sol:neptuno
     sol:horizonsId "899" ;
     sol:tipoPlaneta "gigante helado" ;
     sol:orbitaAlrededorDe sol:sol ;
+    sol:masaKg "1.02409e+26"^^xsd:decimal ;
     sol:imagenUrl "https://images-assets.nasa.gov/image/PIA01493/PIA01493~small.jpg"^^xsd:anyURI ;
     sol:imagenUrl "https://images-assets.nasa.gov/image/PIA02210/PIA02210~small.jpg"^^xsd:anyURI ;
     sol:imagenUrl "https://images-assets.nasa.gov/image/PIA02220/PIA02220~thumb.jpg"^^xsd:anyURI ;
@@ -673,6 +680,8 @@ sol:ceres
     sol:nombreIngles "Ceres" ;
     sol:horizonsId "1" ;
     sol:orbitaAlrededorDe sol:sol ;
+    sol:masaKg "9.383515874323901e+20"^^xsd:decimal ;
+    sol:gmM3s2 "62628400000.0"^^xsd:decimal ;
     sol:imagenUrl "https://images-assets.nasa.gov/image/PIA21079/PIA21079~small.jpg"^^xsd:anyURI ;
     sol:imagenUrl "https://images-assets.nasa.gov/image/PIA19167/PIA19167~thumb.jpg"^^xsd:anyURI ;
     sol:imagenUrl "https://images-assets.nasa.gov/image/PIA20014/PIA20014~thumb.jpg"^^xsd:anyURI ;
@@ -681,15 +690,15 @@ sol:ceres
 sol:orbita_ceres
     a sol:Orbita ;
     sol:fechaConsulta "2026-04-19"^^xsd:date ;
-    sol:semiejeMayorAu "0.3870988682608204"^^xsd:decimal ;
-    sol:perihelioAu "0.3074982475659556"^^xsd:decimal ;
-    sol:afelioAu "0.4666994889556851"^^xsd:decimal ;
-    sol:excentricidad "0.2056338243831582"^^xsd:decimal ;
-    sol:inclinacionDeg "7.003385033700892"^^xsd:decimal ;
-    sol:longitudNodoAscendenteDeg "48.29797725015239"^^xsd:decimal ;
-    sol:argumentoPeriapsisDeg "29.2013632653845"^^xsd:decimal ;
-    sol:anomaliaMediaDeg "239.6204744837375"^^xsd:decimal ;
-    sol:periodoOrbitalDias "87.96932168490336"^^xsd:decimal .
+    sol:semiejeMayorAu "2.765520456122323"^^xsd:decimal ;
+    sol:perihelioAu "2.545201790786719"^^xsd:decimal ;
+    sol:afelioAu "2.985839121457926"^^xsd:decimal ;
+    sol:excentricidad "0.07966625770128029"^^xsd:decimal ;
+    sol:inclinacionDeg "10.58803809445821"^^xsd:decimal ;
+    sol:longitudNodoAscendenteDeg "80.24860526371636"^^xsd:decimal ;
+    sol:argumentoPeriapsisDeg "73.30303356966029"^^xsd:decimal ;
+    sol:anomaliaMediaDeg "263.477771793501"^^xsd:decimal ;
+    sol:periodoOrbitalDias "1679.823837097111"^^xsd:decimal .
 
 sol:pluton
     a sol:PlanetaEnano ;
@@ -697,9 +706,15 @@ sol:pluton
     sol:nombreIngles "Pluto" ;
     sol:horizonsId "999" ;
     sol:orbitaAlrededorDe sol:sol ;
+    sol:masaKg "1.3069999999999998e+22"^^xsd:decimal ;
     sol:imagenUrl "https://images-assets.nasa.gov/image/PIA11217/PIA11217~small.jpg"^^xsd:anyURI ;
     sol:imagenUrl "https://images-assets.nasa.gov/image/PIA19880/PIA19880~small.jpg"^^xsd:anyURI ;
     sol:imagenUrl "https://images-assets.nasa.gov/image/PIA19686/PIA19686~small.jpg"^^xsd:anyURI ;
+    sol:tieneSatelite sol:caronte ;
+    sol:tieneSatelite sol:nix ;
+    sol:tieneSatelite sol:hydra ;
+    sol:tieneSatelite sol:kerberos ;
+    sol:tieneSatelite sol:styx ;
     sol:tieneOrbita sol:orbita_pluton .
 
 sol:orbita_pluton
@@ -789,20 +804,22 @@ sol:pallas
     sol:nombreIngles "Pallas" ;
     sol:horizonsId "2" ;
     sol:orbitaAlrededorDe sol:sol ;
+    sol:masaKg "2.0421617248250754e+20"^^xsd:decimal ;
+    sol:gmM3s2 "13630000000.0"^^xsd:decimal ;
     sol:tieneOrbita sol:orbita_pallas .
 
 sol:orbita_pallas
     a sol:Orbita ;
     sol:fechaConsulta "2026-04-19"^^xsd:date ;
-    sol:semiejeMayorAu "0.7233303672161022"^^xsd:decimal ;
-    sol:perihelioAu "0.7184183009288536"^^xsd:decimal ;
-    sol:afelioAu "0.7282424335033507"^^xsd:decimal ;
-    sol:excentricidad "0.006790902898427673"^^xsd:decimal ;
-    sol:inclinacionDeg "3.394383172946507"^^xsd:decimal ;
-    sol:longitudNodoAscendenteDeg "76.60687890771926"^^xsd:decimal ;
-    sol:argumentoPeriapsisDeg "54.91487737808406"^^xsd:decimal ;
-    sol:anomaliaMediaDeg "318.120199840769"^^xsd:decimal ;
-    sol:periodoOrbitalDias "224.6999328851782"^^xsd:decimal .
+    sol:semiejeMayorAu "2.76967379563305"^^xsd:decimal ;
+    sol:perihelioAu "2.130732135901571"^^xsd:decimal ;
+    sol:afelioAu "3.40861545536453"^^xsd:decimal ;
+    sol:excentricidad "0.2306920261652837"^^xsd:decimal ;
+    sol:inclinacionDeg "34.93175357674161"^^xsd:decimal ;
+    sol:longitudNodoAscendenteDeg "172.8866899842013"^^xsd:decimal ;
+    sol:argumentoPeriapsisDeg "310.9587831253803"^^xsd:decimal ;
+    sol:anomaliaMediaDeg "243.3576903671047"^^xsd:decimal ;
+    sol:periodoOrbitalDias "1683.609470410569"^^xsd:decimal .
 
 sol:juno
     a sol:Asteroide ;
@@ -818,15 +835,15 @@ sol:juno
 sol:orbita_juno
     a sol:Orbita ;
     sol:fechaConsulta "2026-04-19"^^xsd:date ;
-    sol:semiejeMayorAu "0.999986466824615"^^xsd:decimal ;
-    sol:perihelioAu "0.9833227496673136"^^xsd:decimal ;
-    sol:afelioAu "1.016650183981916"^^xsd:decimal ;
-    sol:excentricidad "0.01666394267336018"^^xsd:decimal ;
-    sol:inclinacionDeg "0.003456726799281723"^^xsd:decimal ;
-    sol:longitudNodoAscendenteDeg "174.7301091890768"^^xsd:decimal ;
-    sol:argumentoPeriapsisDeg "288.2097673035621"^^xsd:decimal ;
-    sol:anomaliaMediaDeg "103.8060714904036"^^xsd:decimal ;
-    sol:periodoOrbitalDias "365.2489284668623"^^xsd:decimal .
+    sol:semiejeMayorAu "2.670963989965862"^^xsd:decimal ;
+    sol:perihelioAu "1.987906823912627"^^xsd:decimal ;
+    sol:afelioAu "3.354021156019097"^^xsd:decimal ;
+    sol:excentricidad "0.2557343223717388"^^xsd:decimal ;
+    sol:inclinacionDeg "12.98636618324325"^^xsd:decimal ;
+    sol:longitudNodoAscendenteDeg "169.8134106329801"^^xsd:decimal ;
+    sol:argumentoPeriapsisDeg "247.8939631421409"^^xsd:decimal ;
+    sol:anomaliaMediaDeg "251.2201960522146"^^xsd:decimal ;
+    sol:periodoOrbitalDias "1594.411713171502"^^xsd:decimal .
 
 sol:vesta
     a sol:Asteroide ;
@@ -834,6 +851,8 @@ sol:vesta
     sol:nombreIngles "Vesta" ;
     sol:horizonsId "4" ;
     sol:orbitaAlrededorDe sol:sol ;
+    sol:masaKg "2.5902761338267687e+20"^^xsd:decimal ;
+    sol:gmM3s2 "17288280000.0"^^xsd:decimal ;
     sol:imagenUrl "https://images-assets.nasa.gov/image/PIA15794/PIA15794~small.jpg"^^xsd:anyURI ;
     sol:imagenUrl "https://images-assets.nasa.gov/image/PIA15790/PIA15790~small.jpg"^^xsd:anyURI ;
     sol:imagenUrl "https://images-assets.nasa.gov/image/PIA15604/PIA15604~small.jpg"^^xsd:anyURI ;
@@ -842,15 +861,38 @@ sol:vesta
 sol:orbita_vesta
     a sol:Orbita ;
     sol:fechaConsulta "2026-04-19"^^xsd:date ;
-    sol:semiejeMayorAu "1.5236425555953"^^xsd:decimal ;
-    sol:perihelioAu "1.38125692276499"^^xsd:decimal ;
-    sol:afelioAu "1.666028188425609"^^xsd:decimal ;
-    sol:excentricidad "0.09345081122040365"^^xsd:decimal ;
-    sol:inclinacionDeg "1.847486060846014"^^xsd:decimal ;
-    sol:longitudNodoAscendenteDeg "49.48133272953771"^^xsd:decimal ;
-    sol:argumentoPeriapsisDeg "286.6181181062292"^^xsd:decimal ;
-    sol:anomaliaMediaDeg "12.42344703930082"^^xsd:decimal ;
-    sol:periodoOrbitalDias "686.946630922878"^^xsd:decimal .
+    sol:semiejeMayorAu "2.361434584175277"^^xsd:decimal ;
+    sol:perihelioAu "2.148461218335632"^^xsd:decimal ;
+    sol:afelioAu "2.574407950014922"^^xsd:decimal ;
+    sol:excentricidad "0.09018812854984286"^^xsd:decimal ;
+    sol:inclinacionDeg "7.143971613978056"^^xsd:decimal ;
+    sol:longitudNodoAscendenteDeg "103.7018496318882"^^xsd:decimal ;
+    sol:argumentoPeriapsisDeg "151.4895269911709"^^xsd:decimal ;
+    sol:anomaliaMediaDeg "67.31887484697154"^^xsd:decimal ;
+    sol:periodoOrbitalDias "1325.446815147155"^^xsd:decimal .
+
+sol:hygiea
+    a sol:Asteroide ;
+    sol:nombre "Hygiea" ;
+    sol:nombreIngles "Hygiea" ;
+    sol:horizonsId "10" ;
+    sol:orbitaAlrededorDe sol:sol ;
+    sol:masaKg "1.048799125001873e+20"^^xsd:decimal ;
+    sol:gmM3s2 "7000000000.0"^^xsd:decimal ;
+    sol:tieneOrbita sol:orbita_hygiea .
+
+sol:orbita_hygiea
+    a sol:Orbita ;
+    sol:fechaConsulta "2026-04-19"^^xsd:date ;
+    sol:semiejeMayorAu "3.150474245834755"^^xsd:decimal ;
+    sol:perihelioAu "2.813203309519618"^^xsd:decimal ;
+    sol:afelioAu "3.487745182149891"^^xsd:decimal ;
+    sol:excentricidad "0.1070540210766816"^^xsd:decimal ;
+    sol:inclinacionDeg "3.830907043295482"^^xsd:decimal ;
+    sol:longitudNodoAscendenteDeg "283.1233081398864"^^xsd:decimal ;
+    sol:argumentoPeriapsisDeg "312.4407533219078"^^xsd:decimal ;
+    sol:anomaliaMediaDeg "243.0604127740897"^^xsd:decimal ;
+    sol:periodoOrbitalDias "2042.501233500691"^^xsd:decimal .
 
 sol:psyche
     a sol:Asteroide ;
@@ -858,6 +900,8 @@ sol:psyche
     sol:nombreIngles "Psyche" ;
     sol:horizonsId "16" ;
     sol:orbitaAlrededorDe sol:sol ;
+    sol:masaKg "2.3987534273257124e+19"^^xsd:decimal ;
+    sol:gmM3s2 "1601000000.0"^^xsd:decimal ;
     sol:imagenUrl "https://images-assets.nasa.gov/image/PIA23875/PIA23875~medium.jpg"^^xsd:anyURI ;
     sol:imagenUrl "https://images-assets.nasa.gov/image/PIA23880/PIA23880~medium.jpg"^^xsd:anyURI ;
     sol:imagenUrl "https://images-assets.nasa.gov/image/PIA24788/PIA24788~medium.jpg"^^xsd:anyURI ;
@@ -882,6 +926,8 @@ sol:eros
     sol:nombreIngles "Eros" ;
     sol:horizonsId "433" ;
     sol:orbitaAlrededorDe sol:sol ;
+    sol:masaKg "6686843564119084.0"^^xsd:decimal ;
+    sol:gmM3s2 "446300.0"^^xsd:decimal ;
     sol:imagenUrl "https://images-assets.nasa.gov/image/PIA03148/PIA03148~thumb.jpg"^^xsd:anyURI ;
     sol:imagenUrl "https://images-assets.nasa.gov/image/PIA02493/PIA02493~thumb.jpg"^^xsd:anyURI ;
     sol:imagenUrl "https://images-assets.nasa.gov/image/PIA02926/PIA02926~thumb.jpg"^^xsd:anyURI ;
@@ -954,6 +1000,8 @@ sol:ryugu
     sol:nombreIngles "Ryugu" ;
     sol:horizonsId "162173" ;
     sol:orbitaAlrededorDe sol:sol ;
+    sol:masaKg "449485339286.5169"^^xsd:decimal ;
+    sol:gmM3s2 "29.999999999999996"^^xsd:decimal ;
     sol:tieneOrbita sol:orbita_ryugu .
 
 sol:orbita_ryugu
@@ -3715,7 +3763,6 @@ sol:orbita_jupiter_s2021_j8
     sol:argumentoPeriapsisDeg "77.96801946070393"^^xsd:decimal ;
     sol:anomaliaMediaDeg "150.9643190138301"^^xsd:decimal ;
     sol:periodoOrbitalDias "616.6433699618307"^^xsd:decimal .
-
 
 sol:mimas
     a sol:Satelite ;
@@ -10442,8 +10489,6 @@ sol:orbita_saturno_s2023_s63
     sol:anomaliaMediaDeg "278.2625029839022"^^xsd:decimal ;
     sol:periodoOrbitalDias "922.0395916520577"^^xsd:decimal .
 
-# ── SATÉLITES NATURALES ─────────────────────────────────────
-
 sol:ariel
     a sol:Satelite ;
     sol:nombre "Ariel" ;
@@ -11453,7 +11498,6 @@ sol:orbita_neptuno_s2021_n1
     sol:argumentoPeriapsisDeg "104.7269834732475"^^xsd:decimal ;
     sol:anomaliaMediaDeg "109.5166317746918"^^xsd:decimal ;
     sol:periodoOrbitalDias "10318.96787051333"^^xsd:decimal .
-
 
 sol:caronte
     a sol:Satelite ;
