@@ -54,20 +54,165 @@ def get_planets():
         return {"planets": planets}
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
+    
+@app.get("/planets/satelite/{name}")
+def get_planet_satellites(name: str):
 
-@app.get("/planets/{name}")
-def get_planet_info(name: str):
-    query = f"""PREFIX sol: <http://ejemplo.org/sistema-solar#>
-            SELECT ?propiedad ?valor 
-            WHERE {{
-            ?p a sol:Planeta ;
-                sol:nombre "{name}" ;
-                ?propiedad ?valor .
-            }}"""
+    query = f"""
+        PREFIX sol: <http://ejemplo.org/sistema-solar#>
+        SELECT ?satelite ?semiejeMayor ?periodo ?excentricidad ?inclinacion
+        WHERE {{
+        ?p a sol:Planeta ;
+            sol:nombre "{name}" ;
+            sol:tieneSatelite ?s .
+        ?s sol:nombre ?satelite ;
+            sol:tieneOrbita ?o .
+        ?o sol:semiejeMayorKm ?semiejeMayor ;
+            sol:periodoOrbitalDias ?periodo ;
+            sol:excentricidad ?excentricidad ;
+            sol:inclinacionDeg ?inclinacion .
+        }}
+        ORDER BY ?semiejeMayor
+    """
     sparql = config_request(query)
     try:
         results = sparql.query().convert()
-        info = {result['propiedad']['value'].split('#')[-1]: result['valor']['value'] for result in results["results"]["bindings"]}
-        return {"name": name, "info": info}
+        satellites = [
+            {
+                "nombre": r["satelite"]["value"],
+                "semiejeMayor": r["semiejeMayor"]["value"],
+                "periodo": r["periodo"]["value"],
+                "excentricidad": r["excentricidad"]["value"],
+                "inclinacion": r["inclinacion"]["value"],
+            }
+            for r in results["results"]["bindings"]
+        ]
+        return {"planeta": name, "satellites": satellites}
+
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
+
+@app.get("/planets/lista")
+def get_planets_lista():
+    query = """
+        PREFIX sol: <http://ejemplo.org/sistema-solar#>
+        SELECT ?nombre ?tipo ?semieje ?periodo
+        WHERE {
+        ?p a sol:Planeta ;
+            sol:nombre ?nombre ;
+            sol:tipoPlaneta ?tipo ;
+            sol:tieneOrbita ?o .
+        ?o sol:semiejeMayorAu ?semieje ;
+            sol:periodoOrbitalDias ?periodo .
+        }
+        ORDER BY ?semieje
+    """
+    sparql = config_request(query)
+    try:
+        results = sparql.query().convert()
+        planets = [
+            {
+                "nombre":  r["nombre"]["value"],
+                "tipo":    r["tipo"]["value"],
+                "semieje": r["semieje"]["value"],
+                "periodo": r["periodo"]["value"],
+            }
+            for r in results["results"]["bindings"]
+        ]
+        return {"planets": planets}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.get("/planets/{name}")
+def get_planet_info(name: str):
+    query = f"""
+        PREFIX sol: <http://ejemplo.org/sistema-solar#>
+
+        SELECT ?nombre ?tipo ?semieje ?periodo
+        WHERE {{
+            ?p a sol:Planeta ;
+               sol:nombre ?nombre ;
+               sol:tipoPlaneta ?tipo ;
+               sol:tieneOrbita ?o .
+            ?o sol:semiejeMayorAu ?semieje ;
+               sol:periodoOrbitalDias ?periodo .
+
+            FILTER(?nombre = "{name}")
+        }}
+    """
+    sparql = config_request(query)
+    try:
+        results = sparql.query().convert()
+        bindings = results["results"]["bindings"]
+
+        if not bindings:
+            raise HTTPException(status_code=404, detail=f"Planeta '{name}' no encontrado")
+
+        # Cada columna del SELECT se lee directamente por su nombre
+        row = bindings[0]
+        info = {
+            "nombre":  row["nombre"]["value"],
+            "tipo":    row["tipo"]["value"],
+            "semieje": row["semieje"]["value"],
+            "periodo": row["periodo"]["value"],
+        }
+        return {"name": name, "info": info}
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.get("/planets/completo/{name}")
+def get_planet_info(name: str):
+    query = f"""
+        PREFIX sol: <http://ejemplo.org/sistema-solar#>
+
+        SELECT ?nombre ?tipo ?imagenes ?semieje ?periodo ?afelio ?perihelio ?excentricidad ?inclinacionDeg ?periapsis ?anomalia
+        WHERE {{
+                    ?p a sol:Planeta ;
+                sol:nombre ?nombre ;
+                sol:tipoPlaneta ?tipo ;
+                sol:imagenUrl ?imagenes;
+                sol:tieneOrbita ?o .
+                    ?o sol:semiejeMayorAu ?semieje ;
+                    sol:periodoOrbitalDias ?periodo ;
+                    sol:afelioAu ?afelio ;
+                    sol:perihelioAu ?perihelio ;
+                    sol:excentricidad ?excentricidad ;
+                    sol:inclinacionDeg ?inclinacionDeg ;
+                    sol:argumentoPeriapsisDeg ?periapsis ;
+                    sol:anomaliaMediaDeg ?anomalia .
+                
+                    FILTER(?nombre = "{name}")
+        }}
+    """
+    sparql = config_request(query)
+    try:
+        results = sparql.query().convert()
+        bindings = results["results"]["bindings"]
+
+        if not bindings:
+            raise HTTPException(status_code=404, detail=f"Planeta '{name}' no encontrado")
+
+        # Cada columna del SELECT se lee directamente por su nombre
+        row = bindings[0]
+        info = {
+            "nombre":  row["nombre"]["value"],
+            "tipo":    row["tipo"]["value"],
+            "semieje": row["semieje"]["value"],
+            "periodo": row["periodo"]["value"],
+            "afelio": row["afelio"]["value"],
+            "perihelio": row["perihelio"]["value"],
+            "excentricidad": row["excentricidad"]["value"],
+            "inclinacionDeg": row["inclinacionDeg"]["value"],
+            "periapsis": row["periapsis"]["value"],
+            "anomaliaMediaDeg": row["anomalia"]["value"]
+        }
+        images = [row["imagenes"]["value"] for row in bindings]
+        return {"name": name, "info": info, "images":images}
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
