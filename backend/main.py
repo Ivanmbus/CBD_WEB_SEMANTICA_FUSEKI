@@ -216,3 +216,47 @@ def get_planet_info(name: str):
         raise HTTPException(status_code=500, detail=str(e))
 
 
+@app.get("/grafo")
+def get_grafo():
+    query = """
+        PREFIX sol: <http://ejemplo.org/sistema-solar#>
+        SELECT ?origen ?tipo_origen ?destino ?tipo_destino ?relacion
+        WHERE {
+          {
+            ?p a sol:Planeta ;
+               sol:nombre ?origen ;
+               sol:tieneSatelite ?s .
+            ?s sol:nombre ?destino .
+            BIND("Planeta"       AS ?tipo_origen)
+            BIND("Satelite"      AS ?tipo_destino)
+            BIND("tieneSatelite" AS ?relacion)
+          } UNION {
+            ?p a sol:Planeta ;
+               sol:nombre ?origen ;
+               sol:orbitaAlrededorDe ?estrella .
+            ?estrella sol:nombre ?destino .
+            BIND("Planeta"          AS ?tipo_origen)
+            BIND("Sol"              AS ?tipo_destino)
+            BIND("orbitaAlrededorDe" AS ?relacion)
+          }
+        }
+    """
+    sparql = config_request(query)
+    try:
+        results = sparql.query().convert()
+        nodos_map = {}
+        enlaces   = []
+        for r in results["results"]["bindings"]:
+            origen       = r["origen"]["value"]
+            destino      = r["destino"]["value"]
+            tipo_origen  = r["tipo_origen"]["value"]
+            tipo_destino = r["tipo_destino"]["value"]
+            relacion     = r["relacion"]["value"]
+            nodos_map[origen]  = tipo_origen
+            nodos_map[destino] = tipo_destino
+            enlaces.append({ "source": origen, "target": destino, "label": relacion })
+        nodos = [{ "id": n, "type": t } for n, t in nodos_map.items()]
+        return { "nodes": nodos, "links": enlaces }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+

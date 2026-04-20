@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import GrafoPanel from './components/GrafoPanel'
 import './App.css'
 
 
@@ -186,6 +187,7 @@ export default function App() {
   const [error,          setError]          = useState(null)
   const [selectedPlanet, setSelectedPlanet] = useState(null)
   const [filtroTipo,     setFiltroTipo]     = useState('todos')
+  const [vista, setVista] = useState('planetas') // 'planetas' | 'grafo'
 
   useEffect(() => {
     // Usa el endpoint /planets/lista que devuelve { planets: [{nombre, tipo, semieje, periodo}] }
@@ -238,41 +240,52 @@ export default function App() {
           </div>
           <h1 className="app-header__title">Astronomy RDF DataBase</h1>
           <p className="app-header__sub">Sistema Solar · Apache Jena Fuseki · SPARQL</p>
+          <nav className="app-nav">
+            <button className={`nav-btn ${vista === 'planetas' ? 'active' : ''}`} onClick={() => setVista('planetas')}>
+              Planetas
+            </button>
+            <button className={`nav-btn ${vista === 'grafo' ? 'active' : ''}`} onClick={() => setVista('grafo')}>
+              Grafo RDF
+            </button>
+          </nav>
         </div>
       </header>
 
       {/* Filtros */}
-      <div className="filters">
-        {tipos.map(tipo => (
-          <button
-            key={tipo}
-            className={`filter-btn ${filtroTipo === tipo ? 'active' : ''}`}
-            style={filtroTipo === tipo && tipo !== 'todos'
-              ? { borderColor: TIPO_COLOR[tipo], color: TIPO_COLOR[tipo] }
-              : {}
-            }
-            onClick={() => setFiltroTipo(tipo)}
-          >
-            {tipo}
-          </button>
-        ))}
-      </div>
+      {vista === 'planetas' && (
+        <div className="filters">
+          {tipos.map(tipo => (
+            <button
+              key={tipo}
+              className={`filter-btn ${filtroTipo === tipo ? 'active' : ''}`}
+              style={filtroTipo === tipo && tipo !== 'todos'
+                ? { borderColor: TIPO_COLOR[tipo], color: TIPO_COLOR[tipo] }
+                : {}
+              }
+              onClick={() => setFiltroTipo(tipo)}
+            >
+              {tipo}
+            </button>
+          ))}
+        </div>
+      )}
 
       {/* Contenido principal */}
       <main className="app-main">
-        {loading && <Spinner />}
-        {error   && <p className="error-msg">Error: {error}</p>}
-        {!loading && !error && (
-          <div className="planet-grid">
-            {planetasFiltrados.map((p, i) => (
-              <PlanetCard
-                key={i}
-                planeta={p}
-                onClick={setSelectedPlanet}
-              />
-            ))}
-          </div>
+        {vista === 'planetas' && (
+          <>
+            {loading && <Spinner />}
+            {error   && <p className="error-msg">Error: {error}</p>}
+            {!loading && !error && (
+              <div className="planet-grid">
+                {planetasFiltrados.map((p, i) => (
+                  <PlanetCard key={i} planeta={p} onClick={setSelectedPlanet} />
+                ))}
+              </div>
+            )}
+          </>
         )}
+        {vista === 'grafo' && <GrafoPanel />}
       </main>
 
       {/* Panel de detalle */}
