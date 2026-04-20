@@ -13,7 +13,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-FUSEKI_URL = "http://localhost:3030/miDataset/query"
+FUSEKI_URL = "http://fuseki:3030/miDataset/query"
 
 class QueryRequest(BaseModel):
     query: str

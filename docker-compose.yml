@@ -15,7 +15,6 @@ services:
       interval: 5s
       timeout: 3s
       retries: 10
-
   loader:
       image: alpine
       container_name: fuseki-loader
@@ -27,6 +26,28 @@ services:
         - ./scripts:/scripts
       command: sh /scripts/load-data.sh
       restart: "no"
+  backend:
+    build:
+      context: ./backend
+      dockerfile: ../images/dockerfile.back
+    container_name: backend
+    ports:
+      - "8000:8000"
+    depends_on:
+      fuseki:
+        condition: service_healthy
+    environment:
+      - FUSEKI_URL=http://fuseki:3030/miDataset/query
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: ../images/dockerfile.front
+    container_name: frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
 
 volumes:
   fuseki_data:
