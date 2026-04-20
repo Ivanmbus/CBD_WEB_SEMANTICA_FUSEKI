@@ -39,7 +39,10 @@ sol:Cometa a owl:Class ;
 sol:Orbita a owl:Class ;
     rdfs:label "Órbita" .
 
-# ── PROPIEDADES COMUNES DE CUERPOS CELESTES ─────────────────────
+sol:Persona a owl:Class ;
+    rdfs:label "Persona" .
+
+# ── PROPIEDADES COMUNES ─────────────────────────────────────────
 sol:nombre a owl:DatatypeProperty ;
     rdfs:domain sol:CuerpoCeleste ;
     rdfs:range xsd:string .
@@ -56,10 +59,17 @@ sol:masaKg a owl:DatatypeProperty ;
     rdfs:domain sol:CuerpoCeleste ;
     rdfs:range xsd:decimal .
 
+sol:gmM3s2 a owl:DatatypeProperty ;
+    rdfs:domain sol:CuerpoCeleste ;
+    rdfs:range xsd:decimal .
+
 sol:radioMedioKm a owl:DatatypeProperty ;
     rdfs:domain sol:CuerpoCeleste ;
     rdfs:range xsd:decimal .
 
+sol:diametroKm a owl:DatatypeProperty ;
+    rdfs:domain sol:CuerpoCeleste ;
+    rdfs:range xsd:decimal .
 
 sol:densidadGcm3 a owl:DatatypeProperty ;
     rdfs:domain sol:CuerpoCeleste ;
@@ -73,7 +83,7 @@ sol:velocidadEscapeKms a owl:DatatypeProperty ;
     rdfs:domain sol:CuerpoCeleste ;
     rdfs:range xsd:decimal .
 
-sol:periodoRotacionHoras a owl:DatatypeProperty ;
+sol:duracionDiaHoras a owl:DatatypeProperty ;
     rdfs:domain sol:CuerpoCeleste ;
     rdfs:range xsd:decimal .
 
@@ -89,21 +99,53 @@ sol:tieneAnillos a owl:DatatypeProperty ;
     rdfs:domain sol:CuerpoCeleste ;
     rdfs:range xsd:boolean .
 
-
-sol:descubiertoPor a owl:DatatypeProperty ;
+sol:nombreAlternativo a owl:DatatypeProperty ;
     rdfs:domain sol:CuerpoCeleste ;
     rdfs:range xsd:string .
+
+sol:designacionAlternativa a owl:DatatypeProperty ;
+    rdfs:domain sol:CuerpoCeleste ;
+    rdfs:range xsd:string .
+
+sol:designacionProvisional a owl:DatatypeProperty ;
+    rdfs:domain sol:Satelite ;
+    rdfs:range xsd:string .
+
+sol:citaIAU a owl:DatatypeProperty ;
+    rdfs:domain sol:CuerpoCeleste ;
+    rdfs:range xsd:string .
+
+sol:albedo a owl:DatatypeProperty ;
+    rdfs:domain sol:CuerpoCeleste ;
+    rdfs:range xsd:decimal .
+
+sol:claseTaxonomica a owl:DatatypeProperty ;
+    rdfs:domain sol:CuerpoCeleste ;
+    rdfs:range xsd:string .
+
+sol:imagenUrl a owl:DatatypeProperty ;
+    rdfs:domain sol:CuerpoCeleste ;
+    rdfs:range xsd:anyURI .
 
 sol:anoDescubrimiento a owl:DatatypeProperty ;
     rdfs:domain sol:CuerpoCeleste ;
     rdfs:range xsd:integer .
 
-sol:nombreAlternativo a owl:DatatypeProperty ;
+sol:fechaDescubrimiento a owl:DatatypeProperty ;
     rdfs:domain sol:CuerpoCeleste ;
+    rdfs:range xsd:date .
+
+# ── PERSONAS ────────────────────────────────────────────────────
+sol:nombreDescubridor a owl:DatatypeProperty ;
+    rdfs:domain sol:Persona ;
     rdfs:range xsd:string .
 
-sol:imagenURL a owl:DatatypeProperty ;
-    rdfs:domain sol:CuerpoCeleste ;
+sol:wikidataId a owl:DatatypeProperty ;
+    rdfs:domain sol:Persona ;
+    rdfs:range xsd:string .
+
+sol:imagenDescubridorUrl a owl:DatatypeProperty ;
+    rdfs:domain sol:Persona ;
     rdfs:range xsd:anyURI .
 
 # ── PROPIEDADES ESPECÍFICAS DE PLANETAS ─────────────────────────
@@ -115,7 +157,11 @@ sol:inclinacionAxialDeg a owl:DatatypeProperty ;
     rdfs:domain sol:Planeta ;
     rdfs:range xsd:decimal .
 
-# ── PROPIEDADES ORBITALES GENERALES ─────────────────────────────
+# ── PROPIEDADES ORBITALES ───────────────────────────────────────
+sol:fechaConsulta a owl:DatatypeProperty ;
+    rdfs:domain sol:Orbita ;
+    rdfs:range xsd:date .
+
 sol:excentricidad a owl:DatatypeProperty ;
     rdfs:domain sol:Orbita ;
     rdfs:range xsd:decimal .
@@ -140,8 +186,6 @@ sol:periodoOrbitalDias a owl:DatatypeProperty ;
     rdfs:domain sol:Orbita ;
     rdfs:range xsd:decimal .
 
-# ── ÓRBITAS HELIOCÉNTRICAS EN AU ────────────────────────────────
-# Para planetas, planetas enanos, asteroides y cometas alrededor del Sol
 sol:semiejeMayorAu a owl:DatatypeProperty ;
     rdfs:domain sol:Orbita ;
     rdfs:range xsd:decimal .
@@ -154,8 +198,6 @@ sol:afelioAu a owl:DatatypeProperty ;
     rdfs:domain sol:Orbita ;
     rdfs:range xsd:decimal .
 
-# ── ÓRBITAS PLANETOCÉNTRICAS EN KM ──────────────────────────────
-# Para satélites naturales alrededor de planetas
 sol:semiejeMayorKm a owl:DatatypeProperty ;
     rdfs:domain sol:Orbita ;
     rdfs:range xsd:decimal .
@@ -168,7 +210,7 @@ sol:apoapsisKm a owl:DatatypeProperty ;
     rdfs:domain sol:Orbita ;
     rdfs:range xsd:decimal .
 
-# ── RELACIONES ENTRE RECURSOS ───────────────────────────────────
+# ── RELACIONES ──────────────────────────────────────────────────
 sol:orbitaAlrededorDe a owl:ObjectProperty ;
     rdfs:domain sol:CuerpoCeleste ;
     rdfs:range sol:CuerpoCeleste .
@@ -176,10 +218,6 @@ sol:orbitaAlrededorDe a owl:ObjectProperty ;
 sol:tieneOrbita a owl:ObjectProperty ;
     rdfs:domain sol:CuerpoCeleste ;
     rdfs:range sol:Orbita .
-    
-sol:fechaConsulta a owl:DatatypeProperty ;
-    rdfs:domain sol:Orbita ;
-    rdfs:range xsd:date .
 
 sol:tieneSatelite a owl:ObjectProperty ;
     rdfs:domain sol:CuerpoCeleste ;
@@ -189,8 +227,10 @@ sol:sateliteDe a owl:ObjectProperty ;
     rdfs:domain sol:Satelite ;
     rdfs:range sol:CuerpoCeleste .
 
-sol:designacionProvisional a owl:DatatypeProperty ;
-    rdfs:domain sol:Satelite ;
-    rdfs:range xsd:string .
+sol:Descubridor a rdfs:Class ;
+    rdfs:label "Descubridor" .
 
-
+sol:descubiertoPor a rdf:Property ;
+    rdfs:domain sol:CuerpoCeleste ;
+    rdfs:range sol:Descubridor ;
+    rdfs:label "descubierto por" .
