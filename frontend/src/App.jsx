@@ -179,15 +179,372 @@ function DetailPanel({ nombre, onClose }) {
     </div>
   )
 }
+function QueryTable({ columns, rows }) {
+  return (
+    <div className="query-table-wrap">
+      <table className="query-table">
+        <thead>
+          <tr>
+            {columns.map((col) => (
+              <th key={col}>{col}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row, i) => (
+            <tr key={i}>
+              {columns.map((col) => (
+                <td key={col}>{formatCell(row[col])}</td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  )
+}
 
+function QueryCards({ columns, rows }) {
+  const normalizedImageNames = [
+    'imagen',
+    'image',
+    'img',
+    'urlimagen',
+    'imagenurl',
+    'imagendescubridorurl',
+  ]
+
+  return (
+    <div className="query-cards">
+      {rows.map((row, i) => {
+        const imageColumns = columns.filter((col) =>
+          normalizedImageNames.includes(col.toLowerCase())
+        )
+
+        const textColumns = columns.filter(
+          (col) => !normalizedImageNames.includes(col.toLowerCase())
+        )
+
+        const images = imageColumns
+          .map((col) => row[col])
+          .filter((value) => typeof value === 'string' && value.startsWith('http'))
+
+        return (
+          <article key={i} className="query-card">
+            {images.length > 0 && (
+              <div className="query-card__images">
+                {images.map((src, idx) => (
+                  <img
+                    key={idx}
+                    src={src}
+                    alt={`resultado-${i}-img-${idx}`}
+                    className="query-card__img"
+                    loading="lazy"
+                  />
+                ))}
+              </div>
+            )}
+
+            {textColumns.map((col) => (
+              <div key={col} className="query-card__row">
+                <span className="query-card__label">{col}</span>
+                <span className="query-card__value">{formatCell(row[col])}</span>
+              </div>
+            ))}
+          </article>
+        )
+      })}
+    </div>
+  )
+}
+
+function SimpleResultGraph({ graph }) {
+  return (
+    <div className="simple-graph">
+      <div className="simple-graph__nodes">
+        {graph.nodes.map((node) => (
+          <div key={node.id} className="simple-graph__node">
+            {node.label}
+          </div>
+        ))}
+      </div>
+
+      <div className="simple-graph__edges">
+        {graph.edges.map((edge, i) => (
+          <div key={i} className="simple-graph__edge">
+            <strong>{edge.source}</strong>
+            <span>{edge.label ? ` — ${edge.label} → ` : ' → '}</span>
+            <strong>{edge.target}</strong>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+function formatCell(value) {
+  if (value === null || value === undefined || value === '') return '—'
+  if (typeof value === 'object') return JSON.stringify(value)
+  return String(value)
+}
+
+function buildGraphData(rows, columns) {
+  const sourceKey =
+    columns.find((c) => ['source', 'from', 's', 'subject'].includes(c)) || null
+  const targetKey =
+    columns.find((c) => ['target', 'to', 'o', 'object'].includes(c)) || null
+  const labelKey =
+    columns.find((c) => ['label', 'predicate', 'p', 'rel'].includes(c)) || null
+
+  if (!sourceKey || !targetKey) {
+    return { nodes: [], edges: [] }
+  }
+
+  const nodeMap = new Map()
+  const edges = []
+
+  rows.forEach((row) => {
+    const source = formatCell(row[sourceKey])
+    const target = formatCell(row[targetKey])
+    const label = labelKey ? formatCell(row[labelKey]) : ''
+
+    if (source && source !== '—' && !nodeMap.has(source)) {
+      nodeMap.set(source, { id: source, label: source })
+    }
+    if (target && target !== '—' && !nodeMap.has(target)) {
+      nodeMap.set(target, { id: target, label: target })
+    }
+
+    if (source !== '—' && target !== '—') {
+      edges.push({ source, target, label })
+    }
+  })
+
+  return {
+    nodes: Array.from(nodeMap.values()),
+    edges,
+  }
+}
 // ── App ──────────────────────────────────────────────────────────
+function QueryWorkbench() {
+  const [query, setQuery] = useState(`PREFIX sol: <http://ejemplo.org/sistema-solar#>
+
+SELECT ?nombre ?tipo
+WHERE {
+  ?p a sol:Planeta ;
+     sol:nombre ?nombre ;
+     sol:tipoPlaneta ?tipo .
+}
+ORDER BY ?nombre`)
+
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(null)
+  const [rows, setRows] = useState([])
+  const [columns, setColumns] = useState([])
+  const [view, setView] = useState('tabla')
+  const [hasRun, setHasRun] = useState(false)
+
+  const consultasEjemplo = [
+    {
+      titulo: 'Todos los planetas',
+      descripcion: 'Lista nombre y tipo de todos los planetas.',
+      query: `PREFIX sol: <http://ejemplo.org/sistema-solar#>
+
+SELECT ?nombre ?tipo
+WHERE {
+  ?p a sol:Planeta ;
+     sol:nombre ?nombre ;
+     sol:tipoPlaneta ?tipo .
+}
+ORDER BY ?nombre`
+    },
+    {
+      titulo: 'Planetas y satélites',
+      descripcion: 'Muestra los satélites de cada planeta.',
+      query: `PREFIX sol: <http://ejemplo.org/sistema-solar#>
+
+SELECT ?planeta ?satelite
+WHERE {
+  ?p a sol:Planeta ;
+     sol:nombre ?planeta ;
+     sol:tieneSatelite ?s .
+  ?s sol:nombre ?satelite .
+}
+ORDER BY ?planeta ?satelite`
+    },
+    {
+      titulo: 'Órbitas planetarias',
+      descripcion: 'Semieje mayor y período orbital.',
+      query: `PREFIX sol: <http://ejemplo.org/sistema-solar#>
+
+SELECT ?nombre ?semieje ?periodo
+WHERE {
+  ?p a sol:Planeta ;
+     sol:nombre ?nombre ;
+     sol:tieneOrbita ?o .
+  ?o sol:semiejeMayorAu ?semieje ;
+     sol:periodoOrbitalDias ?periodo .
+}
+ORDER BY ?semieje`
+    },
+    {
+      titulo: 'Imágenes de planetas',
+      descripcion: 'Devuelve nombre e imagen.',
+      query: `PREFIX sol: <http://ejemplo.org/sistema-solar#>
+
+SELECT ?nombre ?imagenUrl
+WHERE {
+  ?p a sol:Planeta ;
+     sol:nombre ?nombre ;
+     sol:imagenUrl ?imagenUrl .
+}
+ORDER BY ?nombre`
+    },
+  ]
+
+  function applyExample(exampleQuery) {
+    setQuery(exampleQuery)
+  }
+
+  async function runQuery() {
+    setHasRun(true)
+    setLoading(true)
+    setError(null)
+
+    try {
+      const res = await fetch('http://localhost:8000/query', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ query }),
+      })
+
+      const data = await res.json()
+
+      if (!res.ok) {
+        throw new Error(data.detail || 'No se pudo ejecutar la consulta')
+      }
+
+      setColumns(data.columns ?? [])
+      setRows(data.rows ?? [])
+    } catch (e) {
+      setError(e.message || 'No se pudo ejecutar la consulta')
+      setColumns([])
+      setRows([])
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  return (
+    <section className="query-page">
+      <div className="query-shell">
+        <div className="query-main-column">
+          <div className="query-editor-card">
+            <div className="query-editor-top">
+              <div>
+                <h2 className="query-title">Consulta SPARQL</h2>
+                <p className="query-sub">
+                  Escribe una consulta y visualiza los resultados.
+                </p>
+              </div>
+
+              <button className="query-run-btn" onClick={runQuery} disabled={loading}>
+                {loading ? 'Ejecutando…' : 'Ejecutar'}
+              </button>
+            </div>
+
+            <textarea
+              className="query-editor"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              spellCheck={false}
+            />
+          </div>
+
+          <div className="query-results-card">
+            <div className="detail-tabs">
+              <button
+                className={`detail-tab ${view === 'tabla' ? 'active' : ''}`}
+                onClick={() => setView('tabla')}
+              >
+                Tabla
+              </button>
+              <button
+                className={`detail-tab ${view === 'visual' ? 'active' : ''}`}
+                onClick={() => setView('visual')}
+              >
+                Visual
+              </button>
+            </div>
+
+            {loading ? (
+              <Spinner />
+            ) : error ? (
+              <p className="error-msg">{error}</p>
+            ) : rows.length === 0 ? (
+              <p className="empty-msg">
+                {hasRun
+                  ? 'No se han encontrado resultados para esta consulta.'
+                  : 'Ejecuta una consulta para ver resultados.'}
+              </p>
+            ) : view === 'tabla' ? (
+              <div className="query-table-wrap">
+                <table className="query-table">
+                  <thead>
+                    <tr>
+                      {columns.map((col) => (
+                        <th key={col}>{col}</th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {rows.map((row, i) => (
+                      <tr key={i}>
+                        {columns.map((col) => (
+                          <td key={col}>{row[col] ?? '—'}</td>
+                        ))}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            ) : (
+              <QueryCards columns={columns} rows={rows} />
+            )}
+          </div>
+        </div>
+
+        <aside className="query-side-column">
+          <div className="query-examples-panel">
+            <h3 className="query-examples__title">Consultas recomendadas</h3>
+
+            <div className="query-examples__list">
+              {consultasEjemplo.map((item, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  className="query-example-card"
+                  onClick={() => applyExample(item.query)}
+                >
+                  <span className="query-example-card__title">{item.titulo}</span>
+                  <span className="query-example-card__desc">{item.descripcion}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+  )
+}
+
 export default function App() {
   const [planetas,       setPlanetas]       = useState([])
   const [loading,        setLoading]        = useState(true)
   const [error,          setError]          = useState(null)
   const [selectedPlanet, setSelectedPlanet] = useState(null)
   const [filtroTipo,     setFiltroTipo]     = useState('todos')
-  const [vista, setVista] = useState('planetas') // 'planetas' | 'grafo'
+  const [vista, setVista] = useState('planetas') // 'planetas' | 'grafo' | 'consulta'
 
   useEffect(() => {
     // Usa el endpoint /planets/lista que devuelve { planets: [{nombre, tipo, semieje, periodo}] }
@@ -247,20 +604,24 @@ export default function App() {
             <button className={`nav-btn ${vista === 'grafo' ? 'active' : ''}`} onClick={() => setVista('grafo')}>
               Grafo RDF
             </button>
+            <button className={`nav-btn ${vista === 'consulta' ? 'active' : ''}`} onClick={() => setVista('consulta')}>
+              Consulta
+            </button>
           </nav>
         </div>
       </header>
 
-      {/* Filtros */}
+      {/* Filtros: solo en vista planetas */}
       {vista === 'planetas' && (
         <div className="filters">
           {tipos.map(tipo => (
             <button
               key={tipo}
               className={`filter-btn ${filtroTipo === tipo ? 'active' : ''}`}
-              style={filtroTipo === tipo && tipo !== 'todos'
-                ? { borderColor: TIPO_COLOR[tipo], color: TIPO_COLOR[tipo] }
-                : {}
+              style={
+                filtroTipo === tipo && tipo !== 'todos'
+                  ? { borderColor: TIPO_COLOR[tipo], color: TIPO_COLOR[tipo] }
+                  : {}
               }
               onClick={() => setFiltroTipo(tipo)}
             >
@@ -272,10 +633,14 @@ export default function App() {
 
       {/* Contenido principal */}
       <main className="app-main">
-        {vista === 'planetas' && (
+        {vista === 'consulta' ? (
+          <QueryWorkbench />
+        ) : vista === 'grafo' ? (
+          <GrafoPanel />
+        ) : (
           <>
             {loading && <Spinner />}
-            {error   && <p className="error-msg">Error: {error}</p>}
+            {error && <p className="error-msg">Error: {error}</p>}
             {!loading && !error && (
               <div className="planet-grid">
                 {planetasFiltrados.map((p, i) => (
@@ -285,7 +650,6 @@ export default function App() {
             )}
           </>
         )}
-        {vista === 'grafo' && <GrafoPanel />}
       </main>
 
       {/* Panel de detalle */}

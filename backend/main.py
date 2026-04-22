@@ -8,7 +8,11 @@ app = FastAPI()
 #Allows react port to call backend when needed
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=[
+        "http://localhost",
+        "http://localhost:80",
+        "http://localhost:5173",
+    ],
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -28,10 +32,25 @@ def config_request(query: str):
 @app.post("/query")
 def run_query(request: QueryRequest):
     sparql = config_request(request.query)
-    
+
     try:
         results = sparql.query().convert()
-        return results
+
+        columns = results.get("head", {}).get("vars", [])
+        bindings = results.get("results", {}).get("bindings", [])
+
+        rows = []
+        for binding in bindings:
+            row = {}
+            for col in columns:
+                row[col] = binding.get(col, {}).get("value")
+            rows.append(row)
+
+        return {
+            "columns": columns,
+            "rows": rows
+        }
+
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
 
