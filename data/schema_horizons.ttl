@@ -39,6 +39,9 @@ sol:Cometa a owl:Class ;
 sol:Orbita a owl:Class ;
     rdfs:label "Órbita" .
 
+sol:Descubridor a owl:Class ;
+    rdfs:label "Descubridor" .
+
 # ── PROPIEDADES COMUNES ─────────────────────────────────────────
 sol:nombre a owl:DatatypeProperty ;
     rdfs:domain sol:CuerpoCeleste ;
@@ -103,10 +106,6 @@ sol:claseTaxonomica a owl:DatatypeProperty ;
 sol:imagenUrl a owl:DatatypeProperty ;
     rdfs:domain sol:CuerpoCeleste ;
     rdfs:range xsd:anyURI .
-
-sol:anoDescubrimiento a owl:DatatypeProperty ;
-    rdfs:domain sol:CuerpoCeleste ;
-    rdfs:range xsd:integer .
 
 sol:fechaDescubrimiento a owl:DatatypeProperty ;
     rdfs:domain sol:CuerpoCeleste ;
@@ -194,14 +193,12 @@ sol:tieneOrbita a owl:ObjectProperty ;
 
 sol:tieneSatelite a owl:ObjectProperty ;
     rdfs:domain sol:CuerpoCeleste ;
-    rdfs:range sol:Satelite .
+    rdfs:range sol:Satelite ;
+    owl:inverseOf sol:sateliteDe .
 
 sol:sateliteDe a owl:ObjectProperty ;
     rdfs:domain sol:Satelite ;
     rdfs:range sol:CuerpoCeleste .
-
-sol:Descubridor a owl:Class ;
-    rdfs:label "Descubridor" .
 
 sol:descubiertoPor a owl:ObjectProperty ;
     rdfs:domain sol:CuerpoCeleste ;
