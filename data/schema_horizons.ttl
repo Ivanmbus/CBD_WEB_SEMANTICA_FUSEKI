@@ -63,44 +63,12 @@ sol:gmM3s2 a owl:DatatypeProperty ;
     rdfs:domain sol:CuerpoCeleste ;
     rdfs:range xsd:decimal .
 
-sol:radioMedioKm a owl:DatatypeProperty ;
-    rdfs:domain sol:CuerpoCeleste ;
-    rdfs:range xsd:decimal .
-
-sol:diametroKm a owl:DatatypeProperty ;
-    rdfs:domain sol:CuerpoCeleste ;
-    rdfs:range xsd:decimal .
-
-sol:densidadGcm3 a owl:DatatypeProperty ;
-    rdfs:domain sol:CuerpoCeleste ;
-    rdfs:range xsd:decimal .
-
 sol:duracionDiaHoras a owl:DatatypeProperty ;
     rdfs:domain sol:CuerpoCeleste ;
     rdfs:range xsd:decimal .
 
-sol:nombreAlternativo a owl:DatatypeProperty ;
-    rdfs:domain sol:CuerpoCeleste ;
-    rdfs:range xsd:string .
-
-sol:designacionAlternativa a owl:DatatypeProperty ;
-    rdfs:domain sol:CuerpoCeleste ;
-    rdfs:range xsd:string .
-
 sol:designacionProvisional a owl:DatatypeProperty ;
     rdfs:domain sol:Satelite ;
-    rdfs:range xsd:string .
-
-sol:citaIAU a owl:DatatypeProperty ;
-    rdfs:domain sol:CuerpoCeleste ;
-    rdfs:range xsd:string .
-
-sol:albedo a owl:DatatypeProperty ;
-    rdfs:domain sol:CuerpoCeleste ;
-    rdfs:range xsd:decimal .
-
-sol:claseTaxonomica a owl:DatatypeProperty ;
-    rdfs:domain sol:CuerpoCeleste ;
     rdfs:range xsd:string .
 
 sol:imagenUrl a owl:DatatypeProperty ;
