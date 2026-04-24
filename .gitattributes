@@ -1,0 +1,5 @@
+# Forzar LF para scripts que se ejecutan en Linux/Docker
+scripts/load-data.sh text eol=lf
+
+# El resto de ficheros según el sistema operativo
+* text=auto
